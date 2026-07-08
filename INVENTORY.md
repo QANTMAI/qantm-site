@@ -35,15 +35,25 @@ live (curl, DNS, real-browser rendering, JS-bundle analysis) on 2026-07-08.
 - **Assets preserved:** favicon.ico / favicon.png (219KB logo) / favicon-32x32 / favicon-16x16
   (downloaded from the live site into this repo).
 
-## 2. regenesis.qantm.ai
+## 2. regenesis.qantm.ai (browser-verified 2026-07-08)
 
-- **"ReGenesis Discovery Engine"** — a separate React SPA (application, not marketing),
-  same Replit ingress (34.111.179.208).
+- **"ReGenesis Discovery Engine"** — a full public SaaS property, same Replit ingress
+  (34.111.179.208). The landing page is a REVENUE marketing surface: "Find. Score.
+  Report. Decide. 13 engines, one platform" — property discovery/scoring with
+  published membership plans (Explorer $0 · Analyst $199/mo · Investor Pro $299/mo ·
+  Enterprise $799/mo, team seats +$99).
+- **/admin-dashboard is auth-gated** (verified in-browser without signing in):
+  "ADMIN ACCESS REQUIRED — sign in with your Google account." UI-level gate confirmed;
+  API-level enforcement not probed from prod (the repo's
+  SECURITY_KERNEL_IMPLEMENTATION.md is the right place to audit that — code-level).
+- **SEO state:** the same SPA pattern as old qantm.ai — a ~1.5KB HTML shell, one shared
+  head, no crawlable content. As a paid product's storefront it deserves the same
+  treatment qantm.ai got: index + fully mark up the landing page, `noindex` the
+  app/auth/admin routes. Recommend folding that into its migration.
 - **GitHub migration exists:** `QANTMAI/REgenesis` (private) is a Python platform repo
   (Alembic, Dockerfile, GCP_DEPLOYMENT_GUIDE.md, MIGRATION_INVENTORY.md,
   PRE_MIGRATION_AUDIT.md, REPLIT_DEPLOYMENT_INSTRUCTIONS.md) — its Replit→GCP
-  migration is its own documented track. **Out of scope for this repo**; as an
-  auth-gated app it should likely stay `noindex` rather than be SEO'd.
+  migration is its own documented track. **Out of scope for this repo.**
 
 ## 3. 0penrx.org
 
