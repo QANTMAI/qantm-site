@@ -1,0 +1,23 @@
+# Qantm AI
+
+> AI strategy, governance, and implementation consulting for businesses — led by Dr. Seth Dobrin (CEO & AI Strategist, 15+ years in AI and business transformation) and Tabitha Rudd (COO). Based in Austin, TX. Ethical AI governance is central to every engagement.
+
+Qantm AI helps organizations adopt AI responsibly: readiness assessment, strategy development, executive education, GenAI capability tuning, and ML implementation, under the AI iQ™ family of offerings.
+
+## Site
+
+- [Home](https://qantm.ai/): The AI iQ™ offerings — Governance & Ethics Alignment, Readiness Assessment, Strategy Development, Executive Education, GenAI Capability Tuning, GenAI/ML Implementation.
+- [Services](https://qantm.ai/services): AI Strategy Consulting (readiness assessment, technology stack evaluation, implementation roadmap, ROI analysis), Implementation Support (vendor selection, integration planning, technical architecture, change management), AI Training & Education (executive workshops, technical training).
+- [Case Studies](https://qantm.ai/case-studies): Real-world AI implementations across industries.
+- [About](https://qantm.ai/about): Mission — democratizing AI for businesses of all sizes; team and values (innovation, excellence, partnership, responsibility).
+- [Contact](https://qantm.ai/contact): info@qantm.ai · 5900 Balcones Dr Ste 100, Austin, TX 78731 · Mon–Fri 9:00 AM–5:00 PM CST.
+
+## Projects
+
+- [0penRX](https://0penrx.org): Qantm AI's free prescription price-transparency site — real cash-pay drug prices, live FDA/CMS data, no account, no tracking.
+
+## Elsewhere
+
+- [LinkedIn](https://www.linkedin.com/company/qantm-ai/)
+- [Substack — Silicon Sands Studio](https://siliconsandstudio.substack.com/)
+- [GitHub](https://github.com/QANTMAI)

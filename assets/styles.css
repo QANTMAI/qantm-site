@@ -1,0 +1,71 @@
+/* Qantm AI — static site. Palette lifted verbatim from the live app's
+   injected Vite theme (HSL custom properties), dark-first like the original. */
+:root {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --primary: 222 47% 11%;
+  --primary-foreground: 221 8% 97%;
+  --accent-teal: 174 62% 47%;
+  --radius: 0.75rem;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: hsl(var(--accent-teal)); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* Header */
+header { border-bottom: 1px solid hsl(var(--border)); position: sticky; top: 0; background: hsl(var(--background) / .92); backdrop-filter: blur(8px); z-index: 10; }
+.hdr { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 1.25rem; max-width: 1080px; margin: 0 auto; }
+.logo { display: flex; align-items: center; gap: .6rem; color: hsl(var(--foreground)); font-weight: 800; font-size: 1.15rem; letter-spacing: .02em; }
+.logo img { width: 30px; height: 30px; border-radius: 6px; }
+nav.main { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+nav.main a { color: hsl(var(--muted-foreground)); font-size: .95rem; font-weight: 600; }
+nav.main a:hover, nav.main a[aria-current="page"] { color: hsl(var(--foreground)); text-decoration: none; }
+
+/* Hero */
+.hero { padding: 5rem 0 3.5rem; }
+.hero h1 { font-size: clamp(1.9rem, 4.5vw, 3.1rem); line-height: 1.12; letter-spacing: -.02em; max-width: 21ch; }
+.hero p { margin-top: 1.1rem; max-width: 58ch; color: hsl(var(--muted-foreground)); font-size: 1.1rem; }
+.cta-row { display: flex; gap: .8rem; margin-top: 1.8rem; flex-wrap: wrap; }
+.btn { display: inline-block; padding: .7rem 1.3rem; border-radius: var(--radius); font-weight: 700; font-size: .95rem; border: 1px solid hsl(var(--border)); color: hsl(var(--foreground)); }
+.btn:hover { text-decoration: none; border-color: hsl(var(--accent-teal)); }
+.btn.pri { background: hsl(var(--accent-teal)); color: hsl(222 47% 8%); border-color: transparent; }
+.btn.pri:hover { filter: brightness(1.08); }
+
+/* Sections + cards */
+section { padding: 2.6rem 0; }
+h2 { font-size: 1.6rem; letter-spacing: -.01em; margin-bottom: .5rem; }
+.lede { color: hsl(var(--muted-foreground)); max-width: 62ch; margin-bottom: 1.6rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.card { border: 1px solid hsl(var(--border)); border-radius: var(--radius); padding: 1.25rem; background: hsl(var(--card)); }
+.card h3 { font-size: 1.05rem; margin-bottom: .45rem; }
+.card p, .card li { color: hsl(var(--muted-foreground)); font-size: .95rem; }
+.card ul { padding-left: 1.1rem; margin-top: .5rem; }
+
+/* Prose + contact */
+.prose p { margin: .8rem 0; max-width: 68ch; }
+.prose p, .prose li { color: hsl(var(--muted-foreground)); }
+.kv { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.kv .card strong { display: block; color: hsl(var(--foreground)); margin-bottom: .25rem; }
+
+/* Footer */
+footer { border-top: 1px solid hsl(var(--border)); margin-top: 3rem; padding: 2rem 0 2.5rem; }
+footer .cols { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+footer nav { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+footer a { color: hsl(var(--muted-foreground)); font-size: .9rem; }
+footer .copy { color: hsl(var(--muted-foreground)); font-size: .85rem; margin-top: 1.2rem; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
