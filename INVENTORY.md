@@ -37,6 +37,10 @@ live (curl, DNS, real-browser rendering, JS-bundle analysis) on 2026-07-08.
 
 ## 2. regenesis.qantm.ai (browser-verified 2026-07-08)
 
+**Org relationship (per Tabitha, 2026-07-08): ReGenesis is its own venture — its own
+subdomain, its own GitHub repo, its own migration track. Qantm AI is the AFFILIATED
+CONSULTING COMPANY. Related entities; do not present ReGenesis as a Qantm AI product.**
+
 - **"ReGenesis Discovery Engine"** — a full public SaaS property, same Replit ingress
   (34.111.179.208). The landing page is a REVENUE marketing surface: "Find. Score.
   Report. Decide. 13 engines, one platform" — property discovery/scoring with
@@ -49,7 +53,8 @@ live (curl, DNS, real-browser rendering, JS-bundle analysis) on 2026-07-08.
 - **SEO state:** the same SPA pattern as old qantm.ai — a ~1.5KB HTML shell, one shared
   head, no crawlable content. As a paid product's storefront it deserves the same
   treatment qantm.ai got: index + fully mark up the landing page, `noindex` the
-  app/auth/admin routes. Recommend folding that into its migration.
+  app/auth/admin routes — as ITS OWN property/entity, handled in its own repo and
+  migration track, not from this one.
 - **GitHub migration exists:** `QANTMAI/REgenesis` (private) is a Python platform repo
   (Alembic, Dockerfile, GCP_DEPLOYMENT_GUIDE.md, MIGRATION_INVENTORY.md,
   PRE_MIGRATION_AUDIT.md, REPLIT_DEPLOYMENT_INSTRUCTIONS.md) — its Replit→GCP
