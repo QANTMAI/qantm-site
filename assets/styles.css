@@ -75,3 +75,45 @@ footer .copy { color: hsl(var(--muted-foreground)); font-size: .85rem; margin-to
 .media-list li { padding: .35rem 0; border-bottom: 1px solid hsl(var(--border)); }
 .media-list a { font-weight: 600; }
 .media-detail { color: hsl(var(--muted-foreground)); font-size: .9rem; margin-left: .4rem; }
+
+/* Case studies — sourced enterprise & government AI deployments */
+.cs-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: .4rem 0 1.8rem; }
+.cs-chip { display: inline-flex; align-items: center; gap: .4rem; padding: .38rem .8rem; border-radius: 999px;
+  border: 1px solid hsl(var(--border)); background: transparent; color: hsl(var(--muted-foreground));
+  font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
+.cs-chip:hover { border-color: hsl(var(--accent-teal)); color: hsl(var(--foreground)); }
+.cs-chip.is-on { background: hsl(var(--accent-teal)); color: hsl(222 47% 8%); border-color: transparent; }
+.cs-chip span { font-size: .75rem; opacity: .8; font-variant-numeric: tabular-nums; }
+.cs-chip.is-on span { opacity: .9; }
+
+.cs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 1rem; margin-top: 1rem; }
+.cs-card { display: flex; flex-direction: column; border: 1px solid hsl(var(--border)); border-radius: var(--radius);
+  padding: 1.25rem; background: hsl(var(--card)); }
+.cs-card[hidden] { display: none; }
+.cs-top { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; margin-bottom: .7rem; }
+.cs-badge { font-size: .68rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  padding: .16rem .5rem; border-radius: 5px; }
+.cs-ent { background: hsl(174 62% 47% / .16); color: hsl(174 62% 60%); }
+.cs-gov { background: hsl(28 90% 55% / .16); color: hsl(28 90% 66%); }
+.cs-sector { font-size: .8rem; font-weight: 600; color: hsl(var(--muted-foreground)); }
+.cs-country { font-size: .8rem; color: hsl(var(--muted-foreground)); margin-left: auto; }
+.cs-client { font-size: 1.15rem; margin: 0 0 .1rem; color: hsl(var(--foreground)); }
+.cs-year { font-weight: 500; color: hsl(var(--muted-foreground)); font-size: .9rem; }
+.cs-name { font-size: .92rem; font-weight: 600; color: hsl(var(--muted-foreground)); margin-bottom: .8rem; }
+.cs-metric { font-size: 1rem; font-weight: 700; color: hsl(174 62% 58%); line-height: 1.4;
+  padding: .6rem .8rem; margin-bottom: .9rem; background: hsl(174 62% 47% / .08);
+  border-left: 3px solid hsl(var(--accent-teal)); border-radius: 0 6px 6px 0; }
+.cs-dl { margin: 0 0 .2rem; }
+.cs-dl dt { font-size: .72rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+  color: hsl(var(--foreground)); margin-top: .7rem; }
+.cs-dl dd { margin: .2rem 0 0; font-size: .9rem; color: hsl(var(--muted-foreground)); line-height: 1.55; }
+.cs-quote { margin: 1rem 0 .3rem; padding-left: .9rem; border-left: 2px solid hsl(var(--border));
+  font-style: italic; font-size: .9rem; color: hsl(var(--foreground) / .85); }
+.cs-tech { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; padding: 0; margin: .9rem 0 0; }
+.cs-tech li { font-size: .72rem; font-weight: 600; color: hsl(var(--muted-foreground));
+  padding: .18rem .5rem; border: 1px solid hsl(var(--border)); border-radius: 5px; }
+.cs-src { margin: 1rem 0 0; padding-top: .8rem; border-top: 1px solid hsl(var(--border));
+  font-size: .82rem; color: hsl(var(--muted-foreground)); }
+.cs-src a { font-weight: 600; }
+.cs-note { color: hsl(var(--muted-foreground)); font-size: .82rem; max-width: 70ch; margin: 2.2rem 0 1.4rem;
+  padding: .9rem 1rem; border: 1px solid hsl(var(--border)); border-radius: var(--radius); background: hsl(var(--muted) / .25); }
