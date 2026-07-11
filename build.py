@@ -7,9 +7,14 @@ nothing invented. URLs match the live SPA exactly (/services, /about,
 the bare path). Run:  python3 build.py
 """
 
+import hashlib
 import json
 
 SITE = "https://qantm.ai"
+
+# Content-hash the stylesheet so browsers fetch the new CSS immediately after a
+# deploy instead of serving a stale cached copy.
+ASSET_V = hashlib.md5(open("assets/styles.css", "rb").read()).hexdigest()[:8]
 
 ORG_JSONLD = {
     "@context": "https://schema.org",
@@ -77,14 +82,15 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="apple-touch-icon" href="./favicon.png">
-<link rel="stylesheet" href="./assets/styles.css">
+<link rel="stylesheet" href="./assets/styles.css?v={ASSET_V}">
 <script type="application/ld+json">{jsonld(extra_ld)}</script>
 </head>
 <body>
 <header>
   <div class="hdr">
     <a class="logo" href="./"><img src="./assets/img/logo.png" alt="Qantm AI — Next Level AI Solutions" width="112" height="50"></a>
-    <nav class="main" aria-label="Main">{nav}</nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav class="main" id="mainnav" aria-label="Main">{nav}</nav>
   </div>
 </header>
 <main class="wrap">
@@ -107,6 +113,7 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
     <p class="copy">&copy; 2026 Qantm AI, LLC. All rights reserved.</p>
   </div>
 </footer>
+<script>(function(){{var b=document.querySelector('.nav-toggle'),n=document.getElementById('mainnav');if(b&&n){{b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');}});}}}})();</script>
 </body>
 </html>
 """

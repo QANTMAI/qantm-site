@@ -53,6 +53,23 @@ nav.main a:hover, nav.main a[aria-current="page"] { color: hsl(var(--foreground)
 nav.main a.contact-btn { background: var(--blue); color: #fff; padding: .55rem 1.15rem; border-radius: 10px; }
 nav.main a.contact-btn:hover { filter: brightness(1.08); color: #fff; }
 
+/* Hamburger toggle — hidden on desktop, drives the mobile menu */
+.nav-toggle { display: none; background: none; border: 0; padding: .4rem; cursor: pointer; }
+.nav-toggle span { display: block; width: 26px; height: 2px; border-radius: 2px; background: hsl(var(--foreground)); transition: transform .2s ease, opacity .2s ease; }
+.nav-toggle span + span { margin-top: 6px; }
+
+@media (max-width: 760px) {
+  .hdr { flex-wrap: wrap; padding: .6rem 1.1rem; }
+  .nav-toggle { display: block; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  nav.main { display: none; order: 3; flex-basis: 100%; flex-direction: column; gap: 0; margin-top: .4rem; }
+  nav.main.open { display: flex; }
+  nav.main a { padding: .9rem .25rem; border-top: 1px solid hsl(var(--border)); font-size: 1.05rem; }
+  nav.main a.contact-btn { margin: .75rem 0 .35rem; padding: .8rem; text-align: center; border-top: 0; }
+}
+
 /* Headings + hero */
 h1 { font-weight: 800; font-size: clamp(2.1rem, 5.2vw, 3.4rem); line-height: 1.1; letter-spacing: -.02em; text-align: center; margin: 2.6rem auto 0; max-width: 20ch; }
 .hero { padding: 1.5rem 0 3rem; text-align: center; }
