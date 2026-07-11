@@ -63,9 +63,10 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
     for label, href in NAV:
         rel = "./" if href == "/" else "." + href
         cur = CUR if href == path else ""
-        nav_parts.append(f'<a href="{rel}"{cur}>{label}</a>')
+        cls = ' class="contact-btn"' if href == "/contact" else ""
+        nav_parts.append(f'<a href="{rel}"{cls}{cur}>{label}</a>')
     nav = "".join(nav_parts)
-    robots = '<meta name="robots" content="noindex, nofollow">' if noindex else '<meta name="robots" content="index, follow, max-snippet:-1">'
+    robots = '<meta name="robots" content="noindex, nofollow">' if noindex else '<meta name="robots" content="index, follow, max-snippet:-1">'  # noqa: E501
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +91,7 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
 <body>
 <header>
   <div class="hdr">
-    <a class="logo" href="./"><img src="./favicon-32x32.png" alt="" width="30" height="30">Qantm AI</a>
+    <a class="logo" href="./"><img src="./assets/img/logo.png" alt="Qantm AI — Next Level AI Solutions" width="112" height="50"></a>
     <nav class="main" aria-label="Main">{nav}</nav>
   </div>
 </header>
@@ -119,28 +120,58 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
 """
 
 
+# lucide icons (MIT) — path data captured verbatim from the live qantm.ai cards.
+ICONS = {
+    "shield": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+    "target": '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    "cog": '<path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10.27 7 3.34"/><path d="m20.66 17-1.73-1"/><path d="m3.34 7 1.73 1"/><path d="M14 12h8"/><path d="M2 12h2"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m17 3.34-1 1.73"/><path d="m11 13.73-4 6.93"/>',
+    "users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    "brain": '<path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/>',
+    "sparkles": '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>',
+    "code": '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    "lightbulb": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+    "chart": '<line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/>',
+}
+
+
+def _icon(name):
+    return ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[name]}</svg>')
+
+
+def _tile(color, icon, title, body):
+    ic = _icon(icon) if icon else ""
+    return f'<div class="tile tile--{color}">{ic}<h3>{title}</h3>{body}</div>'
+
+
+def _team(color, img, name, role, desc):
+    return (f'<div class="team-card tile--{color}">'
+            f'<img src="./assets/img/{img}.png" alt="{name}" width="118" height="118" loading="lazy">'
+            f'<h3>{name}</h3><p class="role">{role}</p><p>{desc}</p></div>')
+
+
+# (title, description, brand colour, icon) — colours/icons read from the live site.
 OFFERINGS = [
-    ("AI iQ™ Governance & Ethics Alignment", "Ensuring your AI initiatives align with the highest ethical standards"),
-    ("AI iQ™ Readiness Assessment", "Discover how ready your organization is to leap into the AI revolution"),
-    ("AI iQ™ Strategy Development", "Crafting a winning strategy tailored to your unique aspirations"),
-    ("AI iQ™ Executive Education", "Empowering your leadership with AI landscape navigation skills"),
-    ("AI iQ™ GenAI Capability Tuning", "Fine-tuning your generative AI capabilities for maximum impact"),
-    ("AI iQ™ GenAI/ML Implementation", "Achieving excellence in AI and machine learning operations"),
+    ("AI iQ™ Governance & Ethics Alignment", "Ensuring your AI initiatives align with the highest ethical standards", "red", "shield"),
+    ("AI iQ™ Readiness Assessment", "Discover how ready your organization is to leap into the AI revolution", "navy", "target"),
+    ("AI iQ™ Strategy Development", "Crafting a winning strategy tailored to your unique aspirations", "gold", "cog"),
+    ("AI iQ™ Executive Education", "Empowering your leadership with AI landscape navigation skills", "pink", "users"),
+    ("AI iQ™ GenAI Capability Tuning", "Fine-tuning your generative AI capabilities for maximum impact", "cyan", "brain"),
+    ("AI iQ™ GenAI/ML Implementation", "Achieving excellence in AI and machine learning operations", "purple", "sparkles"),
 ]
 
 home_body = f"""
 <div class="hero">
-  <p style="max-width:60ch;font-size:1.15rem;color:hsl(var(--muted-foreground))">Leading the way in artificial intelligence, with a leadership team bringing decades of success in AI strategy, governance, and development.</p>
+  <p>Leading the way in artificial intelligence, with a leadership team bringing decades of success in AI strategy, governance, and development.</p>
   <div class="cta-row">
     <a class="btn pri" href="{CALENDLY}" rel="noopener">Get Started Today</a>
-    <a class="btn" href="./services">Our Services</a>
+    <a class="btn blue" href="./contact">Contact Us</a>
   </div>
 </div>
 <section id="offerings">
   <h2>Our Tailored Offerings</h2>
-  <div class="grid">
-{"".join(f'    <div class="card"><h3>{t}</h3><p>{d}</p></div>' for t, d in OFFERINGS)}
-  </div>
+  <div class="tiles">
+{"".join('    ' + _tile(c, i, t, f'<p>{d}</p>') + chr(10) for t, d, c, i in OFFERINGS)}  </div>
 </section>
 <section id="ethics">
   <h2>Ethical AI Governance</h2>
@@ -149,54 +180,57 @@ home_body = f"""
 <section id="cta">
   <h2>Join the AI Revolution!</h2>
   <p class="lede">Contact Qantm AI today to discover how our tailor-made solutions can elevate your organization into the bright future of technology.</p>
-  <div class="cta-row"><a class="btn pri" href="./contact">Contact Us</a><a class="btn" href="{CALENDLY}" rel="noopener">Book a call</a></div>
+  <img class="cta-image" src="./assets/img/join-ai-revolution.png" alt="Join the AI Revolution with Qantm AI" width="500" height="300" loading="lazy">
+  <div class="cta-row"><a class="btn pri" href="./contact">Contact Us</a><a class="btn blue" href="{CALENDLY}" rel="noopener">Book a call</a></div>
 </section>
 """
 
 services_body = f"""
 <p class="lede" style="margin-top:2.2rem">Transform your business with our expert AI consulting services.</p>
-<div class="grid">
-  <div class="card"><h3>AI Strategy Consulting</h3><p>Develop a comprehensive AI roadmap aligned with your business objectives.</p>
-    <ul><li>AI readiness assessment</li><li>Technology stack evaluation</li><li>Implementation roadmap</li><li>ROI analysis</li></ul></div>
-  <div class="card"><h3>Implementation Support</h3><p>Expert guidance in selecting and deploying AI solutions.</p>
-    <ul><li>Vendor selection</li><li>Integration planning</li><li>Technical architecture</li><li>Change management</li></ul></div>
-  <div class="card"><h3>AI Training &amp; Education</h3><p>Empower your team with AI knowledge and practical skills.</p>
-    <ul><li>Executive workshops</li><li>Technical training</li><li>Best practices</li><li>Hands-on exercises</li></ul></div>
+<div class="tiles">
+  {_tile("navy", "brain", "AI Strategy Consulting", "<p>Develop a comprehensive AI roadmap aligned with your business objectives.</p><ul><li>AI readiness assessment</li><li>Technology stack evaluation</li><li>Implementation roadmap</li><li>ROI analysis</li></ul>")}
+  {_tile("cyan", "code", "Implementation Support", "<p>Expert guidance in selecting and deploying AI solutions.</p><ul><li>Vendor selection</li><li>Integration planning</li><li>Technical architecture</li><li>Change management</li></ul>")}
+  {_tile("purple", "users", "AI Training &amp; Education", "<p>Empower your team with AI knowledge and practical skills.</p><ul><li>Executive workshops</li><li>Technical training</li><li>Best practices</li><li>Hands-on exercises</li></ul>")}
 </div>
 <section>
   <h2>Why Choose Us?</h2>
   <p class="lede">We combine deep AI expertise with practical business experience to deliver real results.</p>
-  <div class="grid">
-    <div class="card"><h3>Expert Knowledge</h3><p>Access to leading AI experts and latest technologies.</p></div>
-    <div class="card"><h3>Proven Results</h3><p>Track record of successful AI implementations.</p></div>
-    <div class="card"><h3>Trusted Partner</h3><p>Long-term support and guidance throughout your AI journey.</p></div>
+  <div class="tiles">
+    {_tile("pink", "lightbulb", "Expert Knowledge", "<p>Access to leading AI experts and latest technologies.</p>")}
+    {_tile("gold", "chart", "Proven Results", "<p>Track record of successful AI implementations.</p>")}
+    {_tile("red", "shield", "Trusted Partner", "<p>Long-term support and guidance throughout your AI journey.</p>")}
   </div>
   <div class="cta-row"><a class="btn pri" href="{CALENDLY}" rel="noopener">Get Started</a></div>
 </section>
 """
 
-about_body = """
+about_body = f"""
 <p class="lede" style="margin-top:2.2rem">We're a team of AI experts and business strategists helping organizations navigate the future of technology.</p>
 <section>
-  <h2>Our Mission</h2>
-  <p class="lede">At Qantm AI, we believe in democratizing artificial intelligence for businesses of all sizes. Our mission is to bridge the gap between cutting-edge AI technology and practical business applications, ensuring our clients stay ahead in an increasingly digital world.</p>
+  <div class="split">
+    <img src="./assets/img/ipad-playbook.png" alt="Qantm AI Playbook on iPad" width="1000" height="526" loading="lazy">
+    <div class="prose">
+      <h2 style="text-align:left">Our Mission</h2>
+      <p>At Qantm AI, we believe in democratizing artificial intelligence for businesses of all sizes. Our mission is to bridge the gap between cutting-edge AI technology and practical business applications, ensuring our clients stay ahead in an increasingly digital world.</p>
+    </div>
+  </div>
 </section>
 <section>
   <h2>Our Values</h2>
-  <div class="grid">
-    <div class="card"><h3>Innovation</h3><p>Constantly pushing boundaries and exploring new possibilities in AI.</p></div>
-    <div class="card"><h3>Excellence</h3><p>Delivering high-quality solutions that drive real business value.</p></div>
-    <div class="card"><h3>Partnership</h3><p>Building long-term relationships based on trust and mutual success.</p></div>
-    <div class="card"><h3>Responsibility</h3><p>Ensuring ethical AI development and sustainable practices.</p></div>
+  <div class="tiles">
+    {_tile("navy", None, "Innovation", "<p>Constantly pushing boundaries and exploring new possibilities in AI.</p>")}
+    {_tile("purple", None, "Excellence", "<p>Delivering high-quality solutions that drive real business value.</p>")}
+    {_tile("cyan", None, "Partnership", "<p>Building long-term relationships based on trust and mutual success.</p>")}
+    {_tile("red", None, "Responsibility", "<p>Ensuring ethical AI development and sustainable practices.</p>")}
   </div>
 </section>
 <section>
   <h2>Our Team</h2>
-  <div class="grid">
-    <div class="card"><h3>Dr. Seth Dobrin</h3><p><strong>CEO &amp; AI Strategist</strong><br>15+ years of experience in AI and business transformation.</p></div>
-    <div class="card"><h3>Tabitha Rudd</h3><p><strong>COO</strong><br>Business operations, marketing, sales operations &amp; partnership relations.</p></div>
-    <div class="card"><h3>Gigi Frenchie</h3><p><strong>CSO</strong><br>Cookie breach &amp; toy phishing expert, specializing in robust package delivery safety protocols &amp; team crisis management.</p></div>
-    <div class="card"><h3>Dot LeBot</h3><p><strong>MDL</strong><br>Development, implementation, and management helper.</p></div>
+  <div class="team-grid">
+    {_team("pink", "team-seth", "Dr. Seth Dobrin", "CEO &amp; AI Strategist", "Formerly IBM's first-ever Global Chief AI Officer &mdash; 15+ years transforming business through AI.")}
+    {_team("gold", "team-rudd", "Tabitha Rudd", "COO", "Business operations, marketing, sales operations &amp; partnership relations.")}
+    {_team("cyan", "team-gigi", "Gigi Frenchie", "CSO", "Cookie breach &amp; toy phishing expert, specializing in robust package delivery safety protocols &amp; team crisis management.")}
+    {_team("red", "team-dot", "Dot LeBot", "MDL", "Development, implementation, and management helper.")}
   </div>
 </section>
 """
@@ -385,10 +419,9 @@ for fname, spec in pages.items():
     open(fname, "w").write(page(path, title, desc, h1, body, extra, noindex))
     print(f"wrote {fname}  (title {len(title)}, desc {len(desc)})")
 
-# sitemap — per-page lastmod so refreshed pages signal a recrawl
-LASTMOD = {"/case-studies": "2026-07-11"}
+# sitemap — all pages rebuilt with the live-matched design on 2026-07-11
 urls = "\n".join(
-    f'  <url><loc>{SITE}{p}</loc><lastmod>{LASTMOD.get(p, "2026-07-08")}</lastmod></url>'
+    f'  <url><loc>{SITE}{p}</loc><lastmod>2026-07-11</lastmod></url>'
     for p in ["/", "/services", "/case-studies", "/media", "/about", "/contact"])
 open("sitemap.xml", "w").write(
     f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
