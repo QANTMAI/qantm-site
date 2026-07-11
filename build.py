@@ -365,8 +365,8 @@ def _media_body():
             for yr, its in years:
                 rows = "".join(
                     f'<a class="tl-item" href="{esc(it["url"])}" target="_blank" rel="noopener">'
-                    f'<span class="tl-title">{esc(it["title"])}</span>'
-                    f'<span class="tl-date">{esc(it["detail"])}</span></a>' for it in its)
+                    f'<span class="tl-date">{esc(it["detail"])}</span>'
+                    f'<span class="tl-title">{esc(it["title"])}</span></a>' for it in its)
                 tl.append(f'<div class="tl-year"><div class="tl-marker">{yr}</div>'
                           f'<div class="tl-items">{rows}</div></div>')
             tl.append('</div></section>')
