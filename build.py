@@ -175,14 +175,6 @@ services_body = f"""
 </section>
 """
 
-case_body = f"""
-<p class="lede" style="margin-top:2.2rem">Discover how our AI solutions have transformed businesses across diverse industries. Explore real-world success stories and learn how Qantm AI delivers measurable results.</p>
-<div class="prose">
-  <p>We publish case studies with our clients&rsquo; permission. To hear how engagements like yours have gone &mdash; readiness assessments, governance programs, GenAI implementations &mdash; the fastest route is a conversation.</p>
-</div>
-<div class="cta-row"><a class="btn pri" href="{CALENDLY}" rel="noopener">Book a call with Dr. Dobrin</a><a class="btn" href="./contact">Contact us</a></div>
-"""
-
 about_body = """
 <p class="lede" style="margin-top:2.2rem">We're a team of AI experts and business strategists helping organizations navigate the future of technology.</p>
 <section>
@@ -243,6 +235,119 @@ def _media_body():
 MEDIA_BODY = _media_body()
 
 
+def _case_studies():
+    """Render the Case Studies page from the verified data/case-studies.json.
+
+    These are REAL, primary-source AI deployments across enterprises and
+    governments — each card links to the vendor customer-story or official
+    government source it was drawn from. Qantm AI curates and verifies this
+    briefing; it does not claim to have delivered these engagements. The
+    provenance gate (data/verify_case_studies.py) guarantees every entry has a
+    real source and no placeholder data.
+    """
+    import subprocess
+    import sys as _sys
+    gate = subprocess.run([_sys.executable, "data/verify_case_studies.py"])
+    if gate.returncode != 0:
+        raise SystemExit("case-studies provenance gate FAILED — refusing to build stale/fake data")
+    items = _json.load(open("data/case-studies.json", encoding="utf-8"))
+    # Newest first, then by client name.
+    items = sorted(items, key=lambda e: (-int(e.get("projectYear", 0)), str(e.get("client", "")).lower()))
+
+    # Sector chips (single filter dimension), most common first.
+    from collections import Counter
+    counts = Counter(e["sector"] for e in items)
+    sectors = [s for s, _ in counts.most_common()]
+
+    def esc(s):
+        return _html.escape(str(s))
+
+    n = len(items)
+    n_gov = sum(1 for e in items if e.get("org_type") == "government")
+    n_ent = n - n_gov
+    lede = (
+        '<p class="lede" style="margin-top:2.2rem">How the world’s largest enterprises and '
+        'governments are putting AI to work — and the results they report. A curated, '
+        f'continuously verified briefing of {n} real deployments ({n_ent} enterprise, {n_gov} '
+        'government). Every case links to its primary source.</p>'
+    )
+
+    chips = [f'<button class="cs-chip is-on" data-filter="all" aria-pressed="true">All <span>{n}</span></button>']
+    for s in sectors:
+        chips.append(f'<button class="cs-chip" data-filter="{esc(s)}" aria-pressed="false">'
+                     f'{esc(s)} <span>{counts[s]}</span></button>')
+    filter_bar = f'<div class="cs-filters" role="group" aria-label="Filter by sector" hidden>{"".join(chips)}</div>'
+
+    cards = []
+    for e in items:
+        gov = e.get("org_type") == "government"
+        badge = ('<span class="cs-badge cs-gov">Government</span>' if gov
+                 else '<span class="cs-badge cs-ent">Enterprise</span>')
+        year = f' <span class="cs-year">&middot; {esc(e["projectYear"])}</span>'
+        country = f'<span class="cs-country">{esc(e["country"])}</span>' if e.get("country") else ""
+        metric = f'<p class="cs-metric">{esc(e["metric"])}</p>' if e.get("metric") else ""
+        quote = f'<blockquote class="cs-quote">{esc(e["quote"])}</blockquote>' if e.get("quote") else ""
+        techs = "".join(f'<li>{esc(t)}</li>' for t in (e.get("technologies") or []))
+        techs = f'<ul class="cs-tech" aria-label="Technologies">{techs}</ul>' if techs else ""
+        vendor = f' &middot; {esc(e["vendor"])}' if e.get("vendor") else ""
+        url = _html.escape(str(e["referenceUrl"]), quote=True)
+        cards.append(
+            f'<article class="cs-card" data-sector="{esc(e["sector"])}">'
+            f'<div class="cs-top">{badge}<span class="cs-sector">{esc(e["sector"])}</span>{country}</div>'
+            f'<h3 class="cs-client">{esc(e["client"])}{year}</h3>'
+            f'<p class="cs-name">{esc(e["title"])}</p>'
+            f'{metric}'
+            f'<dl class="cs-dl">'
+            f'<dt>Challenge</dt><dd>{esc(e["challenge"])}</dd>'
+            f'<dt>Solution</dt><dd>{esc(e["solution"])}</dd>'
+            f'<dt>Results</dt><dd>{esc(e["results"])}</dd>'
+            f'</dl>'
+            f'{quote}'
+            f'{techs}'
+            f'<p class="cs-src">Source: <a href="{url}" target="_blank" rel="noopener nofollow">'
+            f'{esc(e["sourceName"])}{vendor} ↗</a></p>'
+            f'</article>'
+        )
+
+    script = (
+        '<script>(function(){var f=document.querySelector(".cs-filters");if(!f)return;'
+        'f.hidden=false;var cards=[].slice.call(document.querySelectorAll(".cs-card"));'
+        'f.addEventListener("click",function(ev){var b=ev.target.closest(".cs-chip");if(!b)return;'
+        'var q=b.getAttribute("data-filter");'
+        '[].forEach.call(f.querySelectorAll(".cs-chip"),function(c){var on=c===b;'
+        'c.classList.toggle("is-on",on);c.setAttribute("aria-pressed",on?"true":"false");});'
+        'cards.forEach(function(c){c.hidden=(q!=="all"&&c.getAttribute("data-sector")!==q);});});})();</script>'
+    )
+    disclosure = (
+        '<p class="cs-note">Qantm AI curates and independently verifies these case studies from '
+        'primary sources; we do not claim to have delivered these specific engagements. '
+        'Every entry links to its original source and is re-checked on each site build.</p>'
+        f'<div class="cta-row"><a class="btn pri" href="{CALENDLY}" rel="noopener">Talk to Qantm AI about your AI initiative</a>'
+        '<a class="btn" href="./contact">Contact us</a></div>'
+    )
+    body = f'{lede}{filter_bar}<div class="cs-grid">{"".join(cards)}</div>{disclosure}{script}'
+
+    # SEO: an ItemList of the case studies, each a CreativeWork citing its source.
+    item_list = {
+        "@context": "https://schema.org", "@type": "ItemList",
+        "name": "Enterprise & Government AI Case Studies",
+        "numberOfItems": n,
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "item": {
+                "@type": "CreativeWork", "name": e["title"], "url": e["referenceUrl"],
+                "about": {"@type": "Organization", "name": e["client"]},
+                "isBasedOn": e["referenceUrl"], "publisher": {"@type": "Organization", "name": e["sourceName"]}}}
+            for i, e in enumerate(items)
+        ],
+    }
+    collection = {"@context": "https://schema.org", "@type": "CollectionPage",
+                  "name": "AI Case Studies — Enterprise & Government", "url": f"{SITE}/case-studies"}
+    return body, [collection, item_list], n, n_ent, n_gov
+
+
+CASE_BODY, CASE_LD, CS_N, CS_ENT, CS_GOV = _case_studies()
+
+
 pages = {
     "index.html": ("/", "Qantm AI — AI Strategy, Governance & Implementation Consulting",
         "AI consulting led by Dr. Seth Dobrin: AI iQ™ readiness assessments, governance and ethics alignment, executive education, and GenAI/ML implementation.",
@@ -251,9 +356,9 @@ pages = {
     "services.html": ("/services", "AI Advisory Services — Strategy, Implementation, Training | Qantm AI",
         "AI strategy consulting, implementation support (vendor selection, architecture, change management), and AI training for executives and technical teams.",
         ("Comprehensive AI Advisory Services", True), services_body, None),
-    "case-studies.html": ("/case-studies", "AI Case Studies — Real-World Implementations | Qantm AI",
-        "How Qantm AI's strategy, governance, and implementation work has delivered measurable results for businesses across industries.",
-        ("Case Studies", True), case_body, None),
+    "case-studies.html": ("/case-studies", "AI Case Studies — How Enterprises & Governments Use AI | Qantm AI",
+        "A curated, source-verified briefing of how leading enterprises and governments deploy AI — real-world case studies and the measurable results they report.",
+        ("Case Studies", True), CASE_BODY, CASE_LD),
     "about.html": ("/about", "About Qantm AI — Dr. Seth Dobrin & Team | Austin, TX",
         "Qantm AI democratizes AI for businesses of all sizes. Led by Dr. Seth Dobrin (CEO & AI Strategist, 15+ years) and Tabitha Rudd (COO). Based in Austin, TX.",
         ("Leading the AI Revolution in Business", True), about_body,
@@ -280,9 +385,10 @@ for fname, spec in pages.items():
     open(fname, "w").write(page(path, title, desc, h1, body, extra, noindex))
     print(f"wrote {fname}  (title {len(title)}, desc {len(desc)})")
 
-# sitemap
+# sitemap — per-page lastmod so refreshed pages signal a recrawl
+LASTMOD = {"/case-studies": "2026-07-11"}
 urls = "\n".join(
-    f"  <url><loc>{SITE}{p}</loc><lastmod>2026-07-08</lastmod></url>"
+    f'  <url><loc>{SITE}{p}</loc><lastmod>{LASTMOD.get(p, "2026-07-08")}</lastmod></url>'
     for p in ["/", "/services", "/case-studies", "/media", "/about", "/contact"])
 open("sitemap.xml", "w").write(
     f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')

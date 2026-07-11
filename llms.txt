@@ -8,7 +8,7 @@ Qantm AI helps organizations adopt AI responsibly: readiness assessment, strateg
 
 - [Home](https://qantm.ai/): The AI iQ™ offerings — Governance & Ethics Alignment, Readiness Assessment, Strategy Development, Executive Education, GenAI Capability Tuning, GenAI/ML Implementation.
 - [Services](https://qantm.ai/services): AI Strategy Consulting (readiness assessment, technology stack evaluation, implementation roadmap, ROI analysis), Implementation Support (vendor selection, integration planning, technical architecture, change management), AI Training & Education (executive workshops, technical training).
-- [Case Studies](https://qantm.ai/case-studies): Real-world AI implementations across industries.
+- [Case Studies](https://qantm.ai/case-studies): A curated, source-verified briefing of real enterprise and government AI deployments and the outcomes they report — drawn from primary sources (Google Cloud, Microsoft, AWS, Anthropic, Snowflake, Databricks customer stories; US, UK, EU, Singapore, Estonia, Canada, Australia government), each card linked to its original source.
 - [About](https://qantm.ai/about): Mission — democratizing AI for businesses of all sizes; team and values (innovation, excellence, partnership, responsibility).
 - [Media & Publications](https://qantm.ai/media): Dr. Seth Dobrin’s books, podcasts, keynotes, TV appearances, peer-reviewed publications, and speaking engagements — 140 sourced items.
 - [Contact](https://qantm.ai/contact): info@qantm.ai · 5900 Balcones Dr Ste 100, Austin, TX 78731 · Mon–Fri 9:00 AM–5:00 PM CST.
