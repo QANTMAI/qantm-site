@@ -69,3 +69,9 @@ footer nav { display: flex; gap: 1.1rem; flex-wrap: wrap; }
 footer a { color: hsl(var(--muted-foreground)); font-size: .9rem; }
 footer .copy { color: hsl(var(--muted-foreground)); font-size: .85rem; margin-top: 1.2rem; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Media / publications / speaking catalog */
+.media-list { list-style: none; margin: .6rem 0 0; padding: 0; }
+.media-list li { padding: .35rem 0; border-bottom: 1px solid hsl(var(--border)); }
+.media-list a { font-weight: 600; }
+.media-detail { color: hsl(var(--muted-foreground)); font-size: .9rem; margin-left: .4rem; }

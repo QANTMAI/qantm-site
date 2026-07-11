@@ -47,7 +47,7 @@ ORG_JSONLD = {
 
 CALENDLY = "https://calendly.com/dr-seth-qantm"
 
-NAV = [("Home", "/"), ("Services", "/services"), ("Case Studies", "/case-studies"), ("About", "/about"), ("Contact", "/contact")]
+NAV = [("Home", "/"), ("Services", "/services"), ("Case Studies", "/case-studies"), ("Media", "/media"), ("About", "/about"), ("Contact", "/contact")]
 
 
 def jsonld(extra=None):
@@ -224,6 +224,25 @@ nf_body = """
 <p class="lede" style="margin-top:2.2rem">That page doesn't exist. Try the navigation above, or head <a href="./">home</a>.</p>
 """
 
+import json as _json
+import html as _html
+
+
+def _media_body():
+    cats = _json.load(open("data/media-catalog.json", encoding="utf-8"))
+    out = ['<p class="lede" style="margin-top:2.2rem">Dr. Seth Dobrin\u2019s books, interviews, keynotes, broadcast appearances, peer-reviewed publications, and speaking engagements \u2014 a complete, sourced catalog.</p>']
+    for c in cats:
+        out.append(f'<section><h2>{_html.escape(c["name"])}</h2><ul class="media-list">')
+        for it in c["items"]:
+            t = _html.escape(it["title"]); d = _html.escape(it["detail"]); u = _html.escape(it["url"], quote=True)
+            out.append(f'<li><a href="{u}" target="_blank" rel="noopener">{t}</a> <span class="media-detail">{d}</span></li>')
+        out.append("</ul></section>")
+    return "\n".join(out)
+
+
+MEDIA_BODY = _media_body()
+
+
 pages = {
     "index.html": ("/", "Qantm AI — AI Strategy, Governance & Implementation Consulting",
         "AI consulting led by Dr. Seth Dobrin: AI iQ™ readiness assessments, governance and ethics alignment, executive education, and GenAI/ML implementation.",
@@ -243,6 +262,10 @@ pages = {
         "Talk to Qantm AI about AI strategy, governance, or implementation. info@qantm.ai · 5900 Balcones Dr Ste 100, Austin, TX 78731 · Mon–Fri 9–5 CST.",
         ("Get In Touch", True), contact_body,
         [{"@context": "https://schema.org", "@type": "ContactPage", "name": "Contact Qantm AI", "url": f"{SITE}/contact"}]),
+    "media.html": ("/media", "Media, Publications & Speaking \u2014 Dr. Seth Dobrin | Qantm AI",
+        "Dr. Seth Dobrin\u2019s media catalog: the AI iQ book, 60+ podcasts and keynotes, TV appearances, peer-reviewed publications, and speaking engagements.",
+        ("Media, Publications & Speaking", True), MEDIA_BODY,
+        [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Qantm AI Media & Publications", "url": f"{SITE}/media"}]),
     "404.html": ("/404", "Page not found — Qantm AI",
         "That page doesn't exist on qantm.ai. Browse AI strategy, governance, and implementation consulting from Qantm AI in Austin, TX.",
         ("Page not found", True), nf_body, None, True),
@@ -260,7 +283,7 @@ for fname, spec in pages.items():
 # sitemap
 urls = "\n".join(
     f"  <url><loc>{SITE}{p}</loc><lastmod>2026-07-08</lastmod></url>"
-    for p in ["/", "/services", "/case-studies", "/about", "/contact"])
+    for p in ["/", "/services", "/case-studies", "/media", "/about", "/contact"])
 open("sitemap.xml", "w").write(
     f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
 print("wrote sitemap.xml")

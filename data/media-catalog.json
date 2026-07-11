@@ -1,0 +1,817 @@
+[
+ {
+  "name": "Book",
+  "items": [
+   {
+    "title": "AI iQ for a Human-Focused Future",
+    "detail": "Routledge / CRC Press — 2024",
+    "url": "https://www.routledge.com/AI-IQ-for-a-Human-focused-Future-Strategy-Talent-and-Culture/Dobrin/p/book/9781032603896"
+   },
+   {
+    "title": "AI iQ for a Human-Focused Future",
+    "detail": "Barnes & Noble — 2024",
+    "url": "https://www.barnesandnoble.com/w/ai-iq-for-a-human-focused-future-seth-dobrin/1144666853"
+   }
+  ]
+ },
+ {
+  "name": "Podcasts — Apple Podcasts",
+  "items": [
+   {
+    "title": "HumAIn Podcast — AI Strategy Unveiled (S8E8)",
+    "detail": "Sep 18, 2024",
+    "url": "https://podcasts.apple.com/us/podcast/ai-strategy-unveiled-former-ibm-chief-ai-officer-on/id1452117009?i=1000669986419"
+   },
+   {
+    "title": "HC Insider — Strategy and AI (Ep 216)",
+    "detail": "Sep 10, 2024",
+    "url": "https://podcasts.apple.com/gb/podcast/strategy-and-ai-with-dr-seth-dobrin/id1512721188?i=1000669080487"
+   },
+   {
+    "title": "Hindsight — Solving Real Human Problems Using AI",
+    "detail": "May 23, 2024",
+    "url": "https://podcasts.apple.com/us/podcast/solving-real-human-problems-using-ai/id1538472770?i=1000656601421"
+   },
+   {
+    "title": "AI and the Future of Work — Ep 309",
+    "detail": "Nov 4, 2024",
+    "url": "https://podcasts.apple.com/us/podcast/309-dr-seth-dobrin-ceo-of-qantm-ai-on-the-ai/id1476885647?i=1000675625539"
+   },
+   {
+    "title": "In AI We Trust? — Ep 35",
+    "detail": "Nov 11, 2021",
+    "url": "https://podcasts.apple.com/us/podcast/seth-dobrin-how-do-you-establish-a-human-centered/id1563248151?i=1000541502604"
+   },
+   {
+    "title": "AI for Good — Logistics Viewpoints",
+    "detail": "Feb 25, 2022",
+    "url": "https://podcasts.apple.com/us/podcast/ai-for-good-ibm-chief-ai-officer-seth-dobrin-and/id1483112408?i=1000552248997"
+   },
+   {
+    "title": "AI and Data Horizons — Next Generation of AI",
+    "detail": "Mar 25, 2026",
+    "url": "https://podcasts.apple.com/us/podcast/seth-dobrin-the-next-generation-of/id1846157762?i=1000757226477"
+   },
+   {
+    "title": "Amazing Business Radio — Role of AI in Customer Care",
+    "detail": "Aug 16, 2022",
+    "url": "https://podcasts.apple.com/us/podcast/the-role-of-ai-in-customer-care-featuring-seth-dobrin/id973187100?i=1000576236482"
+   },
+   {
+    "title": "Smart Talks with IBM — Human-Centered Trustworthy AI",
+    "detail": "Nov 18, 2021",
+    "url": "https://podcasts.apple.com/us/podcast/how-a-human-centered-approach-is-building-trustworthy-ai/id1558889546?i=1000542373993"
+   },
+   {
+    "title": "Build to Last — Silicon Sands & Responsible AI",
+    "detail": "Apr 1, 2025",
+    "url": "https://podcasts.apple.com/us/podcast/how-silicon-sands-seth-dobrin-is-investing-in-a/id1802640849?i=1000701753430"
+   },
+   {
+    "title": "Silicon Sands News — podcast feed",
+    "detail": "Ongoing",
+    "url": "https://podcasts.apple.com/us/podcast/silicon-sands-news-the-ai-investment-intelligence-layer/id1760548704"
+   }
+  ]
+ },
+ {
+  "name": "Podcasts — Other Networks",
+  "items": [
+   {
+    "title": "Emerj — The Practical Business Case for AI Governance",
+    "detail": "Jan 18, 2022",
+    "url": "https://podcast.emerj.com/the-practical-business-case-for-ai-governance-with-ibms-chief-ai-officer-seth-dobrin"
+   },
+   {
+    "title": "Deploy Yourself — Leadership Journeys [151]",
+    "detail": "Dec 29, 2023",
+    "url": "https://www.deployyourself.com/podcast-choosing-leadership/leadership-journeys-151-dr-seth-dobrin-leadership-is-pulling-people-along-with-you-not-pushing-them/"
+   },
+   {
+    "title": "Buzzsprout — AI and the Future of Work Ep 309",
+    "detail": "Nov 4, 2024",
+    "url": "https://www.buzzsprout.com/520474/episodes/16023063-309-dr-seth-dobrin-ceo-of-qantm-ai-on-the-ai-revolution-job-creation-cultural-bias-and-preparing-for-rapid-workforce-changes"
+   },
+   {
+    "title": "HC Group Insider — Strategy and AI",
+    "detail": "Sep 2024",
+    "url": "https://www.hcgroup.global/insights/hc-insider-podcast/strategy-and-ai-with-dr-seth-dobrin"
+   },
+   {
+    "title": "Lead the Team — with Ben Fanning",
+    "detail": "May 16, 2022",
+    "url": "https://www.benfanning.com/seth-dobrin/"
+   },
+   {
+    "title": "Experian DataTalk — Data Science Initiatives",
+    "detail": "Jan 14, 2020",
+    "url": "https://www.experian.com/blogs/news/datatalk/keys-leading-successful-data-science-initiatives-w-dr-seth-dobrin/"
+   },
+   {
+    "title": "EnterpriseDB AI Data Horizons — World Models",
+    "detail": "2025",
+    "url": "https://www.enterprisedb.com/ai-data-horizons/dobrin"
+   },
+   {
+    "title": "The National — Business Extra (IBM AI Chief)",
+    "detail": "Oct 20, 2021",
+    "url": "https://www.thenationalnews.com/podcasts/business-extra/2021/10/20/ibm-ai-chief-on-the-singularity-data-privacy-and-the-new-space-race-business-extra/"
+   }
+  ]
+ },
+ {
+  "name": "YouTube — Interviews & Podcasts",
+  "items": [
+   {
+    "title": "Founders Future — Revolutionizing AI: Responsible AI",
+    "detail": "Sep 30, 2025",
+    "url": "https://www.youtube.com/watch?v=CLJvc1pCpOY"
+   },
+   {
+    "title": "Red Light Greenlight — Navigating the Corporate Labyrinth",
+    "detail": "Dec 12, 2025",
+    "url": "https://www.youtube.com/watch?v=S7UiZjxADO8"
+   },
+   {
+    "title": "Better Tech — AI Is SECRETLY Controlling Us!",
+    "detail": "Dec 4, 2024",
+    "url": "https://www.youtube.com/watch?v=yUv1qm602JQ"
+   },
+   {
+    "title": "The Long Game #066 — Living Forever & Work-Free Society",
+    "detail": "Nov 27, 2024",
+    "url": "https://www.youtube.com/watch?v=Kpv512Rv_80"
+   },
+   {
+    "title": "AI and the Future of Work #309",
+    "detail": "Nov 4, 2024",
+    "url": "https://www.youtube.com/watch?v=ekklX-hFczk"
+   },
+   {
+    "title": "HMG Shorts — Seth Dobrin, CEO Qantm AI",
+    "detail": "Aug 12, 2024",
+    "url": "https://www.youtube.com/watch?v=5Slc2kbmbtc"
+   },
+   {
+    "title": "Founders 2 Funders #98 — AI Innovation & Safety",
+    "detail": "Dec 23, 2024",
+    "url": "https://www.youtube.com/watch?v=rClocyDpngE"
+   },
+   {
+    "title": "HC Commodities Podcast — Strategy and AI",
+    "detail": "Sep 11, 2024",
+    "url": "https://www.youtube.com/watch?v=0n_t3xIpfXE"
+   },
+   {
+    "title": "Techstination — How AI is Changing Lives & Business",
+    "detail": "Apr 21, 2024",
+    "url": "https://www.youtube.com/watch?v=mThDkJn0KXE"
+   },
+   {
+    "title": "Smart City Podcast — AI for Good with Urban Institute",
+    "detail": "Nov 22, 2023",
+    "url": "https://www.youtube.com/watch?v=lBj4vHpCSus"
+   },
+   {
+    "title": "HumAIn Podcast (video) — AI Strategy Unveiled",
+    "detail": "Sep 30, 2024",
+    "url": "https://www.youtube.com/watch?v=L1k8ETDYfu4"
+   },
+   {
+    "title": "An AI expert on AI art",
+    "detail": "Mar 2, 2023",
+    "url": "https://www.youtube.com/watch?v=Eqv_7cQv-lo"
+   }
+  ]
+ },
+ {
+  "name": "YouTube — Keynotes & Panels",
+  "items": [
+   {
+    "title": "One Planet Summit — Technological Overreach in the AI Era",
+    "detail": "Aug 15, 2025",
+    "url": "https://www.youtube.com/watch?v=EhzjtElQo8U"
+   },
+   {
+    "title": "FedEx Institute — Closing Keynote: AI, Cybersecurity, Trust",
+    "detail": "Oct 16, 2025",
+    "url": "https://www.youtube.com/watch?v=XXgGJkXMYBs"
+   },
+   {
+    "title": "AI Summit NY 2021 — Managing IBM's AI Strategy",
+    "detail": "Dec 13, 2021",
+    "url": "https://www.youtube.com/watch?v=DXZJChga04o"
+   },
+   {
+    "title": "AI Summit London 2022 — Thriving in the Age of the Unexpected",
+    "detail": "Jun 28, 2022",
+    "url": "https://www.youtube.com/watch?v=SowYZ7eokQ8"
+   },
+   {
+    "title": "Global AI Summit — Big Tech transforming the future of AI",
+    "detail": "Oct 6, 2022",
+    "url": "https://www.youtube.com/watch?v=vlixttrLc9Y"
+   },
+   {
+    "title": "IIUG Informix Conference — Wednesday Keynote",
+    "detail": "Jan 10, 2022",
+    "url": "https://www.youtube.com/watch?v=_AYMZlpuT5Y"
+   },
+   {
+    "title": "Data Innovation Summit 2022 — Product Review with IBM",
+    "detail": "May 19, 2022",
+    "url": "https://www.youtube.com/watch?v=5evqQQb4mjg"
+   },
+   {
+    "title": "IBM Human-Centered AI — Operationalize AI at Scale",
+    "detail": "May 25, 2022",
+    "url": "https://www.youtube.com/watch?v=qL225UaNky4"
+   }
+  ]
+ },
+ {
+  "name": "YouTube — theCUBE / IBM",
+  "items": [
+   {
+    "title": "theCUBE / IBM Think 2021 — Trust in Machine Intelligence",
+    "detail": "May 12, 2021",
+    "url": "https://www.youtube.com/watch?v=T1wq011z2rw"
+   },
+   {
+    "title": "theCUBE / IBM CDO Summit 2019",
+    "detail": "Jun 24, 2019",
+    "url": "https://www.youtube.com/watch?v=tjgRzdhwwVQ"
+   },
+   {
+    "title": "theCUBE / Spark Summit East 2017 — IBM Analytics",
+    "detail": "Feb 8, 2017",
+    "url": "https://www.youtube.com/watch?v=6Q-hF_pm2QQ"
+   },
+   {
+    "title": "theCUBE / BigData SV 2018 — IBM Data Science",
+    "detail": "Mar 8, 2018",
+    "url": "https://www.youtube.com/watch?v=zEvhTYypmLw"
+   },
+   {
+    "title": "Experian DataTalk #76 — Data Science Initiatives",
+    "detail": "Oct 19, 2018",
+    "url": "https://www.youtube.com/watch?v=Ftvp6OlhlBA"
+   }
+  ]
+ },
+ {
+  "name": "TV, Broadcast & Major Media",
+  "items": [
+   {
+    "title": "CNBC — Meta's $2B Manus deal (Dobrin quoted)",
+    "detail": "Jan 21, 2026",
+    "url": "https://www.cnbc.com/2026/01/21/metas-2b-manus-deal-pushes-away-some-customers-sad-it-happened.html"
+   },
+   {
+    "title": "Bloomberg Markets — segment archive",
+    "detail": "Oct 30, 2025",
+    "url": "https://archive.org/details/BLOOMBERG_20251030_160000_Bloomberg_Markets"
+   },
+   {
+    "title": "TED / TEDx Buffalo — Tackling AI Bias is a Human Problem",
+    "detail": "Apr 2020",
+    "url": "https://www.ted.com/talks/seth_dobrin_tackling_ai_bias_is_a_human_problem/transcript"
+   },
+   {
+    "title": "Newswire — Ex-IBM VP Starts Qantm AI in Dubai",
+    "detail": "Oct 6, 2022",
+    "url": "https://www.newswire.com/news/seth-dobrin-ph-d-departs-from-ibm-after-serving-as-their-first-ever-21818840"
+   },
+   {
+    "title": "Total Retail Tech 2023 — Keynote video",
+    "detail": "Oct 11, 2023",
+    "url": "https://www.mytotalretail.com/video/total-retail-tech/dr-seth-dobrin-phd-founder-and-ceo-qantm-ai-total-retail-tech-2023/"
+   },
+   {
+    "title": "CDO Magazine — IBM Global Chief AI Officer interview",
+    "detail": "Feb 7, 2023",
+    "url": "https://www.cdomagazine.tech/leadership/video_a685662a-a8b5-5dd3-b343-100aa4b5f029.html"
+   },
+   {
+    "title": "IBM Media Center — IDC Leadership Conversation: Scale AI",
+    "detail": "May 12, 2025",
+    "url": "https://mediacenter.ibm.com/media/1_xfu7bfw4"
+   },
+   {
+    "title": "Medium / Inside Machine Learning — ML & Governance",
+    "detail": "2020",
+    "url": "https://medium.com/inside-machine-learning/machine-learning-and-governance-an-interview-with-seth-dobrin-2b006888950e"
+   },
+   {
+    "title": "LRN Blog — Responsible AI and Machine Learning",
+    "detail": "Jun 2, 2023",
+    "url": "https://lrn.com/blog/what-does-responsible-ai-and-machine-learning-look-like-for-business-leaders"
+   }
+  ]
+ },
+ {
+  "name": "Silicon Sands News (Newsletter)",
+  "items": [
+   {
+    "title": "Silicon Sands News — Substack home",
+    "detail": "Ongoing",
+    "url": "https://siliconsandstudio.substack.com/"
+   },
+   {
+    "title": "Worlds Over Words: World Models & $7.6T Infrastructure",
+    "detail": "May 21, 2026",
+    "url": "https://siliconsandstudio.substack.com/p/tech-extra-worlds-over-words"
+   },
+   {
+    "title": "AGI or AGE?",
+    "detail": "Jun 23, 2026",
+    "url": "https://siliconsandstudio.substack.com/p/agi-or-age"
+   },
+   {
+    "title": "Responsible AI — archive",
+    "detail": "Ongoing",
+    "url": "https://siliconsandstudio.substack.com/t/responsible-ai"
+   },
+   {
+    "title": "Investing — archive",
+    "detail": "Ongoing",
+    "url": "https://siliconsandstudio.substack.com/t/investing"
+   },
+   {
+    "title": "Silicon Sands News on LinkedIn (weekly newsletter)",
+    "detail": "Weekly",
+    "url": "https://www.linkedin.com/newsletters/silicon-sands-news-7227338672516280321"
+   },
+   {
+    "title": "Monthly Digest — Silicon Sands News (LinkedIn Pulse)",
+    "detail": "Monthly",
+    "url": "https://www.linkedin.com/pulse/monthly-digest-silicon-sands-news-dr-seth-dobrin-muzee"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2017",
+  "items": [
+   {
+    "title": "Spark Summit (now Data + AI Summit) — San Francisco, CA",
+    "detail": "2017",
+    "url": "https://hyperight.com/enough-with-the-workarounds-unify-collaborate-and-scale-seth-dobrin/"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2018",
+  "items": [
+   {
+    "title": "IBM CDO Summit Spring 2018 — Speaker / Panelist — San Francisco, CA",
+    "detail": "May 2018",
+    "url": "https://www.youtube.com/watch?v=b62fb4bt6-E"
+   },
+   {
+    "title": "IBM CDO Fall Summit 2018 — Speaker / Panelist — USA",
+    "detail": "Nov 2018",
+    "url": "https://www.youtube.com/watch?v=ozIy2eJ4bKE"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2019",
+  "items": [
+   {
+    "title": "IBM CDO Summit 2019 — Speaker / Panelist & session moderator — San Francisco, CA",
+    "detail": "Jun 24–25, 2019",
+    "url": "https://www.youtube.com/watch?v=tjgRzdhwwVQ"
+   },
+   {
+    "title": "IBM CDO Summit 2019 — Influencer Panel — Moderator / Panelist — San Francisco, CA",
+    "detail": "Jun 24–25, 2019",
+    "url": "https://www.youtube.com/watch?v=by_4hP9p4nE"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2020",
+  "items": [
+   {
+    "title": "IBM CDO/CTO Summit Series 2020 — AI Ethics & Trust Session — Moderator / Speaker",
+    "detail": "Jul 22, 2020",
+    "url": "https://www.youtube.com/watch?v=yO-Vjm5r_Qs"
+   },
+   {
+    "title": "IBM CDO/CTO Summit Series 2020 (full series recap) — Speaker / Panelist",
+    "detail": "Jun–Dec 2020",
+    "url": "https://www.youtube.com/watch?v=mZXiGUVztS4"
+   },
+   {
+    "title": "TEDxUniversityatBuffalo — TEDx Speaker — Buffalo, NY",
+    "detail": "Apr 2020",
+    "url": "https://www.youtube.com/watch?v=rWU83MK7t9c"
+   },
+   {
+    "title": "IBM Think 2020",
+    "detail": "2020",
+    "url": "https://creativity4better.com/speakers/dr-seth-dobrin/"
+   },
+   {
+    "title": "The AI World Summit — Netherlands / virtual",
+    "detail": "circa 2020–2022",
+    "url": "https://creativity4better.com/speakers/dr-seth-dobrin/"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2021",
+  "items": [
+   {
+    "title": "GITEX Technology Week / AI Everything 2021 — Fireside Chat — Dubai, UAE",
+    "detail": "Oct 17–21, 2021",
+    "url": "https://cio.economictimes.indiatimes.com/live-blog/gitexglobal/87018239"
+   },
+   {
+    "title": "IBM Think 2021 — Speaker / Panelist",
+    "detail": "May 2021",
+    "url": "https://www.youtube.com/watch?v=T1wq011z2rw"
+   },
+   {
+    "title": "SEMI / Outhink Innovation in a Transforming World Summit",
+    "detail": "Jul 13–14, 2021",
+    "url": "https://outhink.com/news/innovation-in-a-transforming-world/"
+   },
+   {
+    "title": "World AI Forum Cannes — Cannes, France",
+    "detail": "circa 2021–2022",
+    "url": "https://creativity4better.com/speakers/dr-seth-dobrin/"
+   },
+   {
+    "title": "London Tech Week — London, UK",
+    "detail": "circa 2021–2022",
+    "url": "https://creativity4better.com/speakers/dr-seth-dobrin/"
+   },
+   {
+    "title": "IDC/IBM Leadership Conversation — Scale AI to Accelerate Digital Transformation",
+    "detail": "circa 2021",
+    "url": "https://mediacenter.ibm.com/media/1_xfu7bfw4"
+   },
+   {
+    "title": "IIUG 2021 World (IBM IIUG user group) — Keynote Speaker",
+    "detail": "2021",
+    "url": "http://world.iiug.org/speaker/seth-dobrin/"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2022",
+  "items": [
+   {
+    "title": "Data Innovation Summit 2022 (7th ed.) — Speaker / Keynote — Kista, Stockholm, Sweden",
+    "detail": "May 5–6, 2022",
+    "url": "https://hyperight.com/the-time-to-install-trust-throughout-the-ai-life-cycle-is-now/"
+   },
+   {
+    "title": "TNW Conference 2022 (The Next Web) — Amsterdam, Netherlands",
+    "detail": "Jun 15–16, 2022",
+    "url": "https://techukraine.org/2022/06/22/ukraine-in-the-spotlight-at-tnw-2022/"
+   },
+   {
+    "title": "GITEX Global / AI Everything 2022 — Dubai, UAE",
+    "detail": "Oct 2022",
+    "url": "https://mbzuai.ac.ae/news/creating-a-bolder-digital-future-together/"
+   },
+   {
+    "title": "OAC (University of Guelph) Fireside Chat — Virtual (Ontario, Canada)",
+    "detail": "Mar 2022",
+    "url": "https://www.youtube.com/watch?v=w7dVSDl0XDI"
+   },
+   {
+    "title": "Data Science Conference (DSC) Europe 2022 — Keynote Speaker — Belgrade, Serbia",
+    "detail": "Nov 14, 2022",
+    "url": "https://www.youtube.com/watch?v=ipaT0UMK30I"
+   },
+   {
+    "title": "IAA Global Creativity4Better Conference 2022 — Bucharest, Romania",
+    "detail": "2022",
+    "url": "https://creativity4better.com/speakers/dr-seth-dobrin/"
+   },
+   {
+    "title": "AI Summit New York 2022 — Speaker / Panelist — New York, NY (Javits Center)",
+    "detail": "Dec 7–8, 2022",
+    "url": "https://app.qwoted.com/opportunities/event-the-ai-summit-new-york-2022"
+   },
+   {
+    "title": "Global AI Summit 2022 (GAIN) — Fireside Chat — Riyadh, Saudi Arabia",
+    "detail": "Sep 2022",
+    "url": "https://www.youtube.com/watch?v=uu_IHhSR3h4"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2023",
+  "items": [
+   {
+    "title": "Reuters MOMENTUM 2023 — Speaker / Panelist — Austin, TX",
+    "detail": "Jul 11–12, 2023",
+    "url": "https://reutersagency.com/media-centre/trustwise-ai-ceo-seth-dobrin-sapphire-ventures-president-jai-das-and-nasdaq-cto-cio-bradley-peterson-speak-at-day-one-of-reuters-momentum"
+   },
+   {
+    "title": "Total Retail Tech 2023 — Keynote Speaker — Denver, CO",
+    "detail": "Oct 2023",
+    "url": "https://www.mytotalretail.com/video/total-retail-tech/dr-seth-dobrin-phd-founder-and-ceo-qantm-ai-total-retail-tech-2023/"
+   },
+   {
+    "title": "Applied Intelligence Live! Austin 2023 — Speaker / Session Host — Austin, TX",
+    "detail": "Sep 2023",
+    "url": "https://www.iotworldtoday.com/connectivity/making-ai-a-board-level-priority-applied-intelligence-live-austin-2023"
+   },
+   {
+    "title": "AI Week Rimini 2023 (AI Week Italy, 4th ed.) — Keynote / Plenary — Rimini, Italy",
+    "detail": "Apr 17–21, 2023",
+    "url": "https://www.assintel.it/wp-content/uploads/2022/12/Slides-AI-Week-2023.pdf"
+   },
+   {
+    "title": "WLDA Summit 2023 — Women Leaders in Data & AI (Accenture Innovation Hub) — New York, NY",
+    "detail": "Nov 9, 2023",
+    "url": "https://www.cdomagazine.tech/others/game-changing-insights-at-this-years-women-leaders-in-data-and-ai-summit"
+   },
+   {
+    "title": "MicroSeismic Annual User Forum 2023 — Keynote Speaker — USA",
+    "detail": "Nov 2023",
+    "url": "https://www.linkedin.com/posts/microseismicinc_ai-artificialintelligence-generativeai-activity-7134194024965447680-63QB"
+   },
+   {
+    "title": "World Digital Governance (WDG) Dialogue on AI Governance / Ethics",
+    "detail": "Late 2023",
+    "url": "https://www.youtube.com/watch?v=EnEibBm-baU"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2024",
+  "items": [
+   {
+    "title": "NYU SPS x Intellibus AI Masterclass — Spring 2024 (Guest Lecturer / Panelist) — New York, NY",
+    "detail": "May 10–12, 2024",
+    "url": "https://www.youtube.com/watch?v=og-5Y3vloGs"
+   },
+   {
+    "title": "Global AI Summit (GAIN) 2024 — 3rd Edition — Riyadh, Saudi Arabia",
+    "detail": "Sep 10–12, 2024",
+    "url": "https://www.prnewswire.com/news-releases/global-ai-summit-gain-announces-headline-speakers-302235895.html"
+   },
+   {
+    "title": "AI Summit at Black Hat 2024 (Inaugural) — Speaker / Fireside Chat — Las Vegas, NV",
+    "detail": "Aug 2024",
+    "url": "https://www.linkedin.com/posts/sdobrin_aisummitblackhat2024-ai-trustworthyai-activity-7226630284480290817-N6OT"
+   },
+   {
+    "title": "NYU SPS x Intellibus AI Masterclass — Fall 2024 (Guest Lecturer / Panelist) — New York, NY",
+    "detail": "Oct 4–6, 2024",
+    "url": "https://www.sps.nyu.edu/professional-pathways/faculty/21367-seth-dobrin.html"
+   },
+   {
+    "title": "Financial Times Future of AI Summit 2024 — London, UK",
+    "detail": "Nov 6–7, 2024",
+    "url": "https://www.linkedin.com/posts/sdobrin_ftfutureofai-activity-7260607549673029632-s99A"
+   },
+   {
+    "title": "WLDA Summit 2024 at NYSE — New York, NY",
+    "detail": "Nov 2024",
+    "url": "https://www.linkedin.com/posts/brudden_explainableai-activity-7263600651727712256-7kKX"
+   },
+   {
+    "title": "AI Summit New York 2024 — Keynote Speaker / Judge — New York, NY",
+    "detail": "Dec 11–12, 2024",
+    "url": "https://newyork.theaisummit.com/the-ai-summit-new-york-2024/moving-experimentation-scaled-implementation"
+   },
+   {
+    "title": "WLDA Summit at Build-A-Bear 2024 — St. Louis, MO",
+    "detail": "Sep 2024",
+    "url": "https://wlda.tech/wlda-event/wlda-summit-in-partnership-with-build-a-bear/"
+   },
+   {
+    "title": "Fireside Chat with Nayeema Raza — FIPP World Media Congress 2024 — Cascais, Portugal",
+    "detail": "Jun 2024",
+    "url": "https://www.youtube.com/watch?v=kF-8AjzqXlE"
+   },
+   {
+    "title": "FIPP World Media Congress 2024 — The Human Future of GenAI (Keynote) — Cascais, Portugal",
+    "detail": "2024",
+    "url": "https://www.fipp.com/news/the-human-future-of-genai/"
+   },
+   {
+    "title": "FIPP World Media Congress — Speaker Feature",
+    "detail": "Apr 30, 2024",
+    "url": "https://www.fipp.com/news/fipp-world-media-congress-meet-the-speakers-dr-seth-dobrin/"
+   },
+   {
+    "title": "FIPP World Media Congress 2024 — Post-Event Report",
+    "detail": "2024",
+    "url": "https://www.fipp.com/news/fipp-world-media-congress-2024-report-now-available/"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2025",
+  "items": [
+   {
+    "title": "Metro Connect USA 2025 — Keynote Fireside Chat — Fort Lauderdale, FL",
+    "detail": "Feb 24, 2025",
+    "url": "https://metro-connect-usa.com/metro-connect-2025-agenda/keynote-address"
+   },
+   {
+    "title": "AI + Cybersecurity Conference at FedEx Institute of Technology — Closing Keynote — Memphis, TN",
+    "detail": "Aug 14, 2025",
+    "url": "https://www.memphis.edu/fedex/events/ai_security_conference.php"
+   },
+   {
+    "title": "AI Summit Seoul & Expo 2025 (8th Edition) — Speaker profile — Seoul, South Korea",
+    "detail": "Nov 2025",
+    "url": "https://www.aisummitseoul.com/seth-dobrin"
+   },
+   {
+    "title": "AI Summit Seoul & Expo 2025 — Keynote (LinkedIn post) — COEX, Seoul",
+    "detail": "Nov 10–11, 2025",
+    "url": "https://www.linkedin.com/posts/sdobrin_aisummitseoul-aiinnovation-techleadership-activity-7374306449910439936-RS-k"
+   },
+   {
+    "title": "SUMMIT 333 — Global AI Safety & Governance Summit — Abu Dhabi, UAE",
+    "detail": "Nov 9–11, 2025",
+    "url": "https://www.summit333.com/speakers"
+   },
+   {
+    "title": "ConV2X — Smart Tech Transformation in Healthcare — New York, NY",
+    "detail": "Oct 30–31, 2025",
+    "url": "https://www.linkedin.com/posts/sdobrin_conv2x-conv2x-smarttechnology-activity-7356785943791476736-xEt1"
+   },
+   {
+    "title": "AI Festival 2025 (Milan) — Virtual Speaker — Milan, Italy",
+    "detail": "Feb 2025",
+    "url": "https://www.linkedin.com/posts/qantm-ai_aifestival-ai2025-milan-activity-7284214324112314368-SqI3"
+   }
+  ]
+ },
+ {
+  "name": "Speaking & Conferences — 2026",
+  "items": [
+   {
+    "title": "AIM-2026 (AI & Machine Learning Conference) — Keynote Speaker — United Scientific Group, USA",
+    "detail": "2026",
+    "url": "https://artificialintelligence.unitedscientificgroup.org/speakers"
+   }
+  ]
+ },
+ {
+  "name": "Speaker Profiles & Directories",
+  "items": [
+   {
+    "title": "AI Summit London — Speaker page",
+    "detail": "Ongoing",
+    "url": "https://london.theaisummit.com/speakers/seth-dobrin-j3mq"
+   },
+   {
+    "title": "BLLA — Speaker Profile",
+    "detail": "Ongoing",
+    "url": "https://blla.org/speaker/dr-seth-dobrin/"
+   },
+   {
+    "title": "Creativity4Better — Speaker Profile",
+    "detail": "Ongoing",
+    "url": "https://creativity4better.com/speakers/dr-seth-dobrin/"
+   }
+  ]
+ },
+ {
+  "name": "Academic Publications — Profile & Index",
+  "items": [
+   {
+    "title": "Google Scholar — Dr. Seth Dobrin (1,371+ citations across 32 works)",
+    "detail": "Profile",
+    "url": "https://scholar.google.com/citations?user=hqwmjSwAAAAJ&hl=en"
+   },
+   {
+    "title": "Neurotree — Seth E. Dobrin, PhD (academic lineage & publications)",
+    "detail": "Profile",
+    "url": "https://neurotree.org/neurotree/publications.php?pid=554283"
+   }
+  ]
+ },
+ {
+  "name": "Academic Publications — Genetics & Genomics (peer-reviewed)",
+  "items": [
+   {
+    "title": "Recessive symptomatic focal epilepsy and mutant CNTNAP2 — New England Journal of Medicine (826 cites)",
+    "detail": "2006",
+    "url": "https://www.nejm.org/doi/abs/10.1056/NEJMoa052773"
+   },
+   {
+    "title": "Mapping of SIDDT by SNP genome scan; TSPYL loss of function — PNAS (182 cites)",
+    "detail": "2004",
+    "url": "https://www.pnas.org/doi/full/10.1073/pnas.0401194101"
+   },
+   {
+    "title": "A novel locus for adolescent idiopathic scoliosis on chromosome 12p — J. Orthopaedic Research (75 cites)",
+    "detail": "2009",
+    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jor.20885"
+   },
+   {
+    "title": "Candidate gene analysis of 21q22: S100B as bipolar susceptibility gene — Am. J. Med. Genet. B (74 cites)",
+    "detail": "2007",
+    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/ajmg.b.30556"
+   },
+   {
+    "title": "Combining gene expression, demographic & clinical data — bipolar vs. schizophrenia — BMC Genomics (63 cites)",
+    "detail": "2008",
+    "url": "https://link.springer.com/article/10.1186/1471-2164-9-531"
+   },
+   {
+    "title": "Genome-wide scan of bipolar disorder — susceptibility loci — Am. J. Med. Genet. B (48 cites)",
+    "detail": "2007",
+    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/ajmg.b.30524"
+   },
+   {
+    "title": "Essential derivation in maize III: SNP panel for European & N. American germplasm — Crop Science (44 cites)",
+    "detail": "2015",
+    "url": "https://acsess.onlinelibrary.wiley.com/doi/abs/10.2135/cropsci2014.09.0627"
+   },
+   {
+    "title": "Quantitative Trait Locus Analysis of Carotid Atherosclerosis — Stroke (24 cites)",
+    "detail": "2008",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/18048852/"
+   },
+   {
+    "title": "Clinical applications of whole-genome association studies — Expert Rev. Mol. Diagn. (19 cites)",
+    "detail": "2006",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16824029/"
+   },
+   {
+    "title": "Integrating microarrays into disease-gene identification strategies — Expert Rev. Mol. Diagn. (16 cites)",
+    "detail": "2003",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/12779011/"
+   },
+   {
+    "title": "No causative DLL4 mutations in periodic catatonia patients (15q15) — Schizophrenia Research (13 cites)",
+    "detail": "2005",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/15820317/"
+   },
+   {
+    "title": "Automating microsatellite genotyping with array tape — J. Assoc. Lab. Automation (6 cites)",
+    "detail": "2006",
+    "url": "https://journals.sagepub.com/doi/abs/10.1016/j.jala.2006.05.007"
+   },
+   {
+    "title": "Comparison of HapMap data on Affymetrix and Illumina platforms — Pharmacogenomics (2 cites)",
+    "detail": "2007",
+    "url": "https://doi.org/10.2217/14622416.8.2.199"
+   }
+  ]
+ },
+ {
+  "name": "Academic Publications — AI, Healthcare & Digital Health",
+  "items": [
+   {
+    "title": "AI Governance in Healthcare: Best Practices, Solutions, Unresolved Issues — Telehealth and Medicine Today (2 cites)",
+    "detail": "2024",
+    "url": "https://telehealthandmedicinetoday.com/index.php/journal/article/view/521"
+   },
+   {
+    "title": "Near-term digital health predictions: AI-driven healthcare — Telehealth and Medicine Today (4 cites)",
+    "detail": "2023",
+    "url": "https://telehealthandmedicinetoday.com/index.php/journal/article/view/452"
+   },
+   {
+    "title": "Telehealth in emergency medicine residency training — JACEP Open (2 cites)",
+    "detail": "2024",
+    "url": "https://www.sciencedirect.com/science/article/pii/S2688115224014930"
+   },
+   {
+    "title": "Innovative Minds at the 2023 ConV2X Pitch Competition — Blockchain in Healthcare Today",
+    "detail": "2023",
+    "url": "https://www.blockchainhealthcaretoday.com/index.php/journal/article/view/283"
+   },
+   {
+    "title": "The Journey Continues: From Data Lake to Data-Driven Organization — IBM Redbook (10 cites)",
+    "detail": "2018",
+    "url": "https://www.redbooks.ibm.com/redpapers/pdfs/redp5486.pdf"
+   }
+  ]
+ },
+ {
+  "name": "Social Profiles & Official Sites",
+  "items": [
+   {
+    "title": "LinkedIn — Dr. Seth Dobrin",
+    "detail": "Profile",
+    "url": "https://www.linkedin.com/in/sdobrin"
+   },
+   {
+    "title": "X / Twitter — @SDobrin",
+    "detail": "Profile",
+    "url": "https://x.com/SDobrin"
+   },
+   {
+    "title": "Qantm AI — official site",
+    "detail": "Website",
+    "url": "https://www.qantm.ai/"
+   }
+  ]
+ }
+]
