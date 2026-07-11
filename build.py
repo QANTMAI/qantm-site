@@ -104,7 +104,7 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
         <a href="https://0penrx.org" rel="noopener">0penRX</a>
       </nav>
     </div>
-    <p class="copy">&copy; 2026 Qantm AI, LLC. All rights reserved. &middot; <a href="mailto:info@qantm.ai">info@qantm.ai</a> &middot; <a href="https://0penrx.org">0penRX — free prescription price transparency</a></p>
+    <p class="copy">&copy; 2026 Qantm AI, LLC. All rights reserved.</p>
   </div>
 </footer>
 </body>
@@ -155,10 +155,6 @@ OFFERINGS = [
 home_body = f"""
 <div class="hero">
   <p>Leading the way in artificial intelligence, with a leadership team bringing decades of success in AI strategy, governance, and development.</p>
-  <div class="cta-row">
-    <a class="btn pri" href="{EMAIL}">Get Started Today</a>
-    <a class="btn blue" href="{EMAIL}">Contact Us</a>
-  </div>
 </div>
 <section id="offerings">
   <h2>Our Tailored Offerings</h2>
