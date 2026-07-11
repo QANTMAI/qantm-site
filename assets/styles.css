@@ -85,7 +85,11 @@ h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.01
 .tile--gold svg { stroke: #1a1205; }
 
 /* Team cards (colour-cycled, circular real headshots) */
-.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 1.1rem; margin-top: 1.6rem; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 1.6rem; }
+/* 4-item card rows (About values + team): one clean row on desktop, then 2×2, then 1 — never an orphan */
+.tiles-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 920px) { .tiles-4, .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .tiles-4, .team-grid { grid-template-columns: 1fr; } }
 .team-card { border-radius: var(--radius); padding: 1.8rem 1.3rem; text-align: center; color: #fff; }
 .team-card img { width: 118px; height: 118px; border-radius: 50%; object-fit: cover; margin: 0 auto .9rem; display: block; border: 3px solid rgba(255,255,255,.35); background: rgba(255,255,255,.1); }
 .team-card h3 { color: #fff; margin-bottom: .1rem; font-size: 1.15rem; font-weight: 700; }
@@ -120,6 +124,13 @@ footer .copy { color: hsl(var(--muted-foreground)); font-size: .85rem; margin-to
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 /* Media / publications / speaking catalog */
+.media-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 0 auto 1.4rem; max-width: 940px; }
+.media-nav a { display: inline-flex; align-items: center; gap: .4rem; padding: .34rem .72rem; border-radius: 999px;
+  border: 1px solid hsl(var(--border)); color: hsl(var(--muted-foreground)); font-size: .82rem; font-weight: 600; }
+.media-nav a:hover { border-color: var(--blue); color: hsl(var(--foreground)); text-decoration: none; }
+.media-nav a span { font-size: .72rem; opacity: .75; font-variant-numeric: tabular-nums; }
+.media-cat { padding: 1.1rem 0; scroll-margin-top: 84px; }
+.media-cat h2 { text-align: left; font-size: 1.4rem; }
 .media-list { list-style: none; margin: .6rem 0 0; padding: 0; }
 .media-list li { padding: .35rem 0; border-bottom: 1px solid hsl(var(--border)); }
 .media-list a { font-weight: 600; }
