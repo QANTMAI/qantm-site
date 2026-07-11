@@ -20,14 +20,6 @@ ORG_JSONLD = {
     "logo": f"{SITE}/favicon.png",
     "description": "AI strategy, governance, and implementation consulting — AI iQ™ readiness assessments, governance & ethics alignment, executive education, and GenAI/ML implementation.",
     "email": "info@qantm.ai",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "5900 Balcones Dr Ste 100",
-        "addressLocality": "Austin",
-        "addressRegion": "TX",
-        "postalCode": "78731",
-        "addressCountry": "US",
-    },
     "contactPoint": {"@type": "ContactPoint", "email": "info@qantm.ai", "contactType": "sales", "availableLanguage": "English"},
     "founder": {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr.", "jobTitle": "CEO & AI Strategist"},
     "employee": [
@@ -112,7 +104,7 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
         <a href="https://0penrx.org" rel="noopener">0penRX</a>
       </nav>
     </div>
-    <p class="copy">&copy; 2026 Qantm AI, LLC. All rights reserved. &middot; 5900 Balcones Dr Ste 100, Austin, TX 78731 &middot; <a href="mailto:info@qantm.ai">info@qantm.ai</a> &middot; <a href="https://0penrx.org">0penRX — free prescription price transparency</a></p>
+    <p class="copy">&copy; 2026 Qantm AI, LLC. All rights reserved. &middot; <a href="mailto:info@qantm.ai">info@qantm.ai</a> &middot; <a href="https://0penrx.org">0penRX — free prescription price transparency</a></p>
   </div>
 </footer>
 </body>
@@ -240,7 +232,6 @@ contact_body = f"""
 <div class="kv">
   <div class="card"><strong>Email</strong><a href="mailto:info@qantm.ai">info@qantm.ai</a></div>
   <div class="card"><strong>Book a call</strong><a href="{CALENDLY}" rel="noopener">calendly.com/dr-seth-qantm</a></div>
-  <div class="card"><strong>Address</strong>5900 Balcones Dr Ste 100<br>Austin, TX 78731, United States</div>
   <div class="card"><strong>Business hours</strong>Monday&ndash;Friday<br>9:00 AM&ndash;5:00 PM CST</div>
 </div>
 <p class="lede" style="margin-top:1.6rem">We typically respond to inquiries within 24&ndash;48 business hours. For urgent matters, please include &ldquo;URGENT&rdquo; in your subject line.</p>
@@ -398,7 +389,7 @@ pages = {
         ("Leading the AI Revolution in Business", True), about_body,
         [{"@context": "https://schema.org", "@type": "AboutPage", "name": "About Qantm AI", "url": f"{SITE}/about"}]),
     "contact.html": ("/contact", "Contact Qantm AI — AI Consulting in Austin, TX",
-        "Talk to Qantm AI about AI strategy, governance, or implementation. info@qantm.ai · 5900 Balcones Dr Ste 100, Austin, TX 78731 · Mon–Fri 9–5 CST.",
+        "Talk to Qantm AI about AI strategy, governance, or implementation. Email info@qantm.ai · Monday–Friday, 9:00 AM–5:00 PM CST.",
         ("Get In Touch", True), contact_body,
         [{"@context": "https://schema.org", "@type": "ContactPage", "name": "Contact Qantm AI", "url": f"{SITE}/contact"}]),
     "media.html": ("/media", "Media, Publications & Speaking \u2014 Dr. Seth Dobrin | Qantm AI",
