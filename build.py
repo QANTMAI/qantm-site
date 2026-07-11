@@ -37,7 +37,7 @@ ORG_JSONLD = {
     ],
 }
 
-CALENDLY = "https://calendly.com/dr-seth-qantm"
+EMAIL = "mailto:info@qantm.ai"
 
 NAV = [("Home", "/"), ("Services", "/services"), ("Case Studies", "/case-studies"), ("Media", "/media"), ("About", "/about"), ("Contact", "/contact")]
 
@@ -156,8 +156,8 @@ home_body = f"""
 <div class="hero">
   <p>Leading the way in artificial intelligence, with a leadership team bringing decades of success in AI strategy, governance, and development.</p>
   <div class="cta-row">
-    <a class="btn pri" href="{CALENDLY}" rel="noopener">Get Started Today</a>
-    <a class="btn blue" href="./contact">Contact Us</a>
+    <a class="btn pri" href="{EMAIL}">Get Started Today</a>
+    <a class="btn blue" href="{EMAIL}">Contact Us</a>
   </div>
 </div>
 <section id="offerings">
@@ -173,7 +173,7 @@ home_body = f"""
   <h2>Join the AI Revolution!</h2>
   <p class="lede">Contact Qantm AI today to discover how our tailor-made solutions can elevate your organization into the bright future of technology.</p>
   <img class="cta-image" src="./assets/img/join-ai-revolution.png" alt="Join the AI Revolution with Qantm AI" width="500" height="300" loading="lazy">
-  <div class="cta-row"><a class="btn pri" href="./contact">Contact Us</a><a class="btn blue" href="{CALENDLY}" rel="noopener">Book a call</a></div>
+  <div class="cta-row"><a class="btn pri" href="{EMAIL}">Contact Us</a></div>
 </section>
 """
 
@@ -192,7 +192,7 @@ services_body = f"""
     {_tile("gold", "chart", "Proven Results", "<p>Track record of successful AI implementations.</p>")}
     {_tile("red", "shield", "Trusted Partner", "<p>Long-term support and guidance throughout your AI journey.</p>")}
   </div>
-  <div class="cta-row"><a class="btn pri" href="{CALENDLY}" rel="noopener">Get Started</a></div>
+  <div class="cta-row"><a class="btn pri" href="{EMAIL}">Get Started</a></div>
 </section>
 """
 
@@ -231,7 +231,6 @@ contact_body = f"""
 <p class="lede" style="margin-top:2.2rem">Have a question or want to work together? We'd love to hear from you.</p>
 <div class="kv">
   <div class="card"><strong>Email</strong><a href="mailto:info@qantm.ai">info@qantm.ai</a></div>
-  <div class="card"><strong>Book a call</strong><a href="{CALENDLY}" rel="noopener">calendly.com/dr-seth-qantm</a></div>
   <div class="card"><strong>Business hours</strong>Monday&ndash;Friday<br>9:00 AM&ndash;5:00 PM CST</div>
 </div>
 <p class="lede" style="margin-top:1.6rem">We typically respond to inquiries within 24&ndash;48 business hours. For urgent matters, please include &ldquo;URGENT&rdquo; in your subject line.</p>
@@ -347,8 +346,7 @@ def _case_studies():
         '<p class="cs-note">Qantm AI curates and independently verifies these case studies from '
         'primary sources; we do not claim to have delivered these specific engagements. '
         'Every entry links to its original source and is re-checked on each site build.</p>'
-        f'<div class="cta-row"><a class="btn pri" href="{CALENDLY}" rel="noopener">Talk to Qantm AI about your AI initiative</a>'
-        '<a class="btn" href="./contact">Contact us</a></div>'
+        f'<div class="cta-row"><a class="btn pri" href="{EMAIL}">Talk to Qantm AI about your AI initiative</a></div>'
     )
     body = f'{lede}{filter_bar}<div class="cs-grid">{"".join(cards)}</div>{disclosure}{script}'
 
