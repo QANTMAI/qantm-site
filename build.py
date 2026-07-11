@@ -138,7 +138,7 @@ def _tile(color, icon, title, body):
 
 def _team(color, img, name, role, desc):
     return (f'<div class="team-card tile--{color}">'
-            f'<img src="./assets/img/{img}.png" alt="{name}" width="118" height="118" loading="lazy">'
+            f'<img src="./assets/img/{img}.jpg" alt="{name}" width="118" height="118" loading="lazy">'
             f'<h3>{name}</h3><p class="role">{role}</p><p>{desc}</p></div>')
 
 
@@ -172,7 +172,7 @@ home_body = f"""
 <section id="cta">
   <h2>Join the AI Revolution!</h2>
   <p class="lede">Contact Qantm AI today to discover how our tailor-made solutions can elevate your organization into the bright future of technology.</p>
-  <img class="cta-image" src="./assets/img/join-ai-revolution.png" alt="Join the AI Revolution with Qantm AI" width="500" height="300" loading="lazy">
+  <img class="cta-image" src="./assets/img/join-ai-revolution.jpg" alt="Join the AI Revolution with Qantm AI" width="500" height="300" loading="lazy">
   <div class="cta-row"><a class="btn pri" href="{EMAIL}">Contact Us</a></div>
 </section>
 """
@@ -200,7 +200,7 @@ about_body = f"""
 <p class="lede" style="margin-top:2.2rem">We're a team of AI experts and business strategists helping organizations navigate the future of technology.</p>
 <section>
   <div class="split">
-    <img src="./assets/img/ipad-playbook.png" alt="Qantm AI Playbook on iPad" width="1000" height="526" loading="lazy">
+    <img src="./assets/img/ipad-playbook.jpg" alt="Qantm AI Playbook on iPad" width="1000" height="526" loading="lazy">
     <div class="prose">
       <h2 style="text-align:left">Our Mission</h2>
       <p>At Qantm AI, we believe in democratizing artificial intelligence for businesses of all sizes. Our mission is to bridge the gap between cutting-edge AI technology and practical business applications, ensuring our clients stay ahead in an increasingly digital world.</p>
@@ -209,7 +209,7 @@ about_body = f"""
 </section>
 <section>
   <h2>Our Values</h2>
-  <div class="tiles">
+  <div class="tiles tiles-4">
     {_tile("navy", None, "Innovation", "<p>Constantly pushing boundaries and exploring new possibilities in AI.</p>")}
     {_tile("purple", None, "Excellence", "<p>Delivering high-quality solutions that drive real business value.</p>")}
     {_tile("cyan", None, "Partnership", "<p>Building long-term relationships based on trust and mutual success.</p>")}
@@ -245,10 +245,31 @@ import html as _html
 
 
 def _media_body():
+    import re as _re
     cats = _json.load(open("data/media-catalog.json", encoding="utf-8"))
-    out = ['<p class="lede" style="margin-top:2.2rem">Dr. Seth Dobrin\u2019s books, interviews, keynotes, broadcast appearances, peer-reviewed publications, and speaking engagements \u2014 a complete, sourced catalog.</p>']
+
+    # Stable, unique anchor id per category for the jump-nav.
+    slugs, used = [], {}
     for c in cats:
-        out.append(f'<section><h2>{_html.escape(c["name"])}</h2><ul class="media-list">')
+        s = "cat-" + _re.sub(r"[^a-z0-9]+", "-", c["name"].lower()).strip("-")
+        used[s] = used.get(s, -1) + 1
+        slugs.append(s if used[s] == 0 else f"{s}-{used[s]}")
+
+    total = sum(len(c["items"]) for c in cats)
+    out = [
+        f'<p class="lede" style="margin-top:2.2rem">Dr. Seth Dobrin\u2019s books, interviews, '
+        f'keynotes, broadcast appearances, peer-reviewed publications, and speaking engagements '
+        f'\u2014 {total} sourced items across {len(cats)} categories.</p>'
+    ]
+    # Jump-nav: chip per category with its item count (anchor links, no JS needed).
+    nav = ['<nav class="media-nav" aria-label="Jump to a category">']
+    for c, s in zip(cats, slugs):
+        nav.append(f'<a href="#{s}">{_html.escape(c["name"])} <span>{len(c["items"])}</span></a>')
+    nav.append("</nav>")
+    out.append("".join(nav))
+
+    for c, s in zip(cats, slugs):
+        out.append(f'<section id="{s}" class="media-cat"><h2>{_html.escape(c["name"])}</h2><ul class="media-list">')
         for it in c["items"]:
             t = _html.escape(it["title"]); d = _html.escape(it["detail"]); u = _html.escape(it["url"], quote=True)
             out.append(f'<li><a href="{u}" target="_blank" rel="noopener">{t}</a> <span class="media-detail">{d}</span></li>')
