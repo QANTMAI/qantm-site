@@ -140,18 +140,78 @@ footer a { color: hsl(var(--muted-foreground)); font-size: .9rem; }
 footer .copy { color: hsl(var(--muted-foreground)); font-size: .85rem; margin-top: 1.2rem; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
-/* Media / publications / speaking catalog */
-.media-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 0 auto 1.4rem; max-width: 940px; }
-.media-nav a { display: inline-flex; align-items: center; gap: .4rem; padding: .34rem .72rem; border-radius: 999px;
-  border: 1px solid hsl(var(--border)); color: hsl(var(--muted-foreground)); font-size: .82rem; font-weight: 600; }
+/* Media portfolio — stats, featured book, speaking timeline, media cards */
+.mstats { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 0 auto 2rem; }
+.mstat { flex: 1 1 140px; max-width: 210px; text-align: center; padding: 1.1rem 1rem;
+  border: 1px solid hsl(var(--border)); border-radius: var(--radius); background: hsl(var(--card)); }
+.mstat-n { display: block; font-size: 2.3rem; font-weight: 800; line-height: 1; color: hsl(var(--foreground)); font-variant-numeric: tabular-nums; }
+.mstat-l { display: block; margin-top: .4rem; font-size: .82rem; color: hsl(var(--muted-foreground)); font-weight: 600; }
+
+.media-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 0 auto 1.6rem; max-width: 940px; }
+.media-nav a { padding: .34rem .8rem; border-radius: 999px; border: 1px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground)); font-size: .82rem; font-weight: 600; }
 .media-nav a:hover { border-color: var(--blue); color: hsl(var(--foreground)); text-decoration: none; }
-.media-nav a span { font-size: .72rem; opacity: .75; font-variant-numeric: tabular-nums; }
-.media-cat { padding: 1.1rem 0; scroll-margin-top: 84px; }
-.media-cat h2 { text-align: left; font-size: 1.4rem; }
-.media-list { list-style: none; margin: .6rem 0 0; padding: 0; }
-.media-list li { padding: .35rem 0; border-bottom: 1px solid hsl(var(--border)); }
-.media-list a { font-weight: 600; }
-.media-detail { color: hsl(var(--muted-foreground)); font-size: .9rem; margin-left: .4rem; }
+
+.msec { padding: 1.6rem 0; scroll-margin-top: 84px; }
+.msec-head { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+.msec-head h2 { text-align: left; font-size: 1.5rem; margin: 0; }
+.msec-icon { display: inline-flex; padding: .5rem; border-radius: 10px; flex: none; }
+.msec-icon svg { width: 1.35rem; height: 1.35rem; stroke: #fff; stroke-width: 2; fill: none; display: block; }
+.msec-icon.tile--gold svg { stroke: #1a1205; }
+.msec-count { font-size: .8rem; font-weight: 700; color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted) / .5); padding: .12rem .6rem; border-radius: 999px; }
+.msec-sub { color: hsl(var(--muted-foreground)); font-size: .92rem; margin: -.6rem 0 1.1rem; }
+
+/* Featured book */
+.book-feature { display: grid; grid-template-columns: minmax(190px, 240px) 1fr; gap: 1.8rem; align-items: center; }
+.book-cover { position: relative; overflow: hidden; border-radius: var(--radius); padding: 1.6rem 1.4rem;
+  min-height: 300px; display: flex; flex-direction: column; justify-content: space-between; color: #fff;
+  box-shadow: 0 12px 34px rgba(0,0,0,.45); }
+.book-cover::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 7px; background: rgba(255,255,255,.22); }
+.book-cover-tag { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+.book-cover-title { font-size: 1.65rem; font-weight: 800; line-height: 1.14; margin: .8rem 0; }
+.book-cover-by { font-size: .9rem; font-weight: 600; opacity: .92; }
+.book-title { font-size: 1.5rem; margin-bottom: .3rem; }
+.book-sub { color: hsl(var(--muted-foreground)); margin-bottom: 1rem; }
+.book-get { font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: hsl(var(--muted-foreground)); margin-bottom: .5rem; }
+@media (max-width: 640px) { .book-feature { grid-template-columns: 1fr; } .book-cover { max-width: 280px; margin: 0 auto; } }
+
+/* Media cards (video, podcasts, tv, newsletter) */
+.mcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(258px, 100%), 1fr)); gap: .8rem; }
+.mcard { position: relative; display: flex; flex-direction: column; gap: .45rem; padding: 1rem 1.1rem;
+  border: 1px solid hsl(var(--border)); border-radius: 10px; background: hsl(var(--card));
+  transition: border-color .15s ease, transform .15s ease; }
+.mcard:hover { border-color: var(--blue); transform: translateY(-2px); text-decoration: none; }
+.mcard-date { font-size: .72rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: var(--blue); }
+.mcard-title { font-size: .95rem; font-weight: 600; color: hsl(var(--foreground)); line-height: 1.42; padding-right: 1.1rem; }
+.mcard-go { position: absolute; top: .95rem; right: .95rem; opacity: 0; transition: opacity .15s ease; }
+.mcard-go svg { width: 1rem; height: 1rem; stroke: var(--blue); stroke-width: 2.5; fill: none; display: block; }
+.mcard:hover .mcard-go { opacity: 1; }
+
+/* Speaking timeline */
+.timeline { margin-top: 1.2rem; padding-left: 1.7rem; border-left: 2px solid hsl(var(--border)); }
+.tl-year { position: relative; padding-bottom: 1.7rem; }
+.tl-year:last-child { padding-bottom: 0; }
+.tl-marker { position: relative; font-size: 1.4rem; font-weight: 800; margin-bottom: .7rem; color: hsl(var(--foreground)); font-variant-numeric: tabular-nums; }
+.tl-marker::before { content: ""; position: absolute; left: calc(-1.7rem - 1px); top: 50%;
+  transform: translate(-50%, -50%); width: 13px; height: 13px; border-radius: 50%; background: var(--pink); border: 3px solid hsl(var(--background)); }
+.tl-items { display: flex; flex-direction: column; gap: .5rem; }
+.tl-item { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+  padding: .6rem .85rem; border: 1px solid hsl(var(--border)); border-radius: 8px; background: hsl(var(--card)); transition: border-color .15s ease; }
+.tl-item:hover { border-color: var(--pink); text-decoration: none; }
+.tl-title { font-size: .92rem; font-weight: 600; color: hsl(var(--foreground)); }
+.tl-date { font-size: .75rem; color: hsl(var(--muted-foreground)); white-space: nowrap; flex: none; }
+
+/* Publications list */
+.pub-list { list-style: none; padding: 0; margin: .3rem 0 0; }
+.pub-list li { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding: .55rem 0; border-bottom: 1px solid hsl(var(--border)); }
+.pub-list a { font-weight: 600; font-size: .93rem; }
+.pub-year { font-size: .78rem; color: hsl(var(--muted-foreground)); white-space: nowrap; flex: none; font-variant-numeric: tabular-nums; }
+
+/* Profile chips */
+.mchips { display: flex; flex-wrap: wrap; gap: .6rem; }
+.mchip { padding: .55rem 1.05rem; border: 1px solid hsl(var(--border)); border-radius: 999px; font-weight: 600; font-size: .9rem; color: hsl(var(--foreground)); }
+.mchip:hover { border-color: var(--blue); background: hsl(var(--muted) / .3); text-decoration: none; }
 
 /* Case studies — sourced enterprise & government AI deployments */
 .cs-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: .4rem 0 1.8rem; justify-content: center; }

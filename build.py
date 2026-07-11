@@ -130,6 +130,14 @@ ICONS = {
     "code": '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
     "lightbulb": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
     "chart": '<line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/>',
+    "book-open": '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+    "mic": '<path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/>',
+    "video": '<path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
+    "tv": '<path d="m17 2-5 5-5-5"/><rect width="20" height="15" x="2" y="7" rx="2"/>',
+    "newspaper": '<path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="10" y="6" rx="1"/>',
+    "presentation": '<path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/>',
+    "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+    "arrow-up-right": '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
 }
 
 
@@ -248,35 +256,142 @@ import html as _html
 
 
 def _media_body():
+    """Render the Media page as a portfolio: a stats band, a featured book, a
+    decade-of-speaking timeline, media cards, and a publications list.
+
+    The 23 source categories in data/media-catalog.json are regrouped into eight
+    sections; nothing is invented \u2014 every card is a real {title, detail, url}
+    entry, and the timeline years are parsed from the category names.
+    """
     import re as _re
     cats = _json.load(open("data/media-catalog.json", encoding="utf-8"))
 
-    # Stable, unique anchor id per category for the jump-nav.
-    slugs, used = [], {}
+    def esc(s):
+        return _html.escape(str(s))
+
+    def sec_of(name):
+        if name == "Book":
+            return "book"
+        if name.startswith("Podcasts"):
+            return "podcasts"
+        if name.startswith("YouTube"):
+            return "video"
+        if name.startswith("TV"):
+            return "tv"
+        if name.startswith("Silicon Sands"):
+            return "newsletter"
+        if name.startswith("Speaking"):
+            return "speaking"
+        if name.startswith("Academic"):
+            return "research"
+        return "elsewhere"
+
+    by = {}
     for c in cats:
-        s = "cat-" + _re.sub(r"[^a-z0-9]+", "-", c["name"].lower()).strip("-")
-        used[s] = used.get(s, -1) + 1
-        slugs.append(s if used[s] == 0 else f"{s}-{used[s]}")
+        by.setdefault(sec_of(c["name"]), []).append(c)
 
-    total = sum(len(c["items"]) for c in cats)
+    def items_of(key):
+        return [it for c in by.get(key, []) for it in c["items"]]
+
+    def count(key):
+        return len(items_of(key))
+
+    # (key, label, icon, accent) \u2014 order defines the page and the section nav.
+    SECTIONS = [s for s in [
+        ("book", "The Book", "book-open", "navy"),
+        ("speaking", "Speaking & Conferences", "presentation", "pink"),
+        ("video", "Video & Keynotes", "video", "red"),
+        ("podcasts", "Podcasts", "mic", "purple"),
+        ("tv", "TV, Broadcast & Press", "tv", "gold"),
+        ("newsletter", "Silicon Sands Newsletter", "newspaper", "cyan"),
+        ("research", "Research & Publications", "graduation-cap", "navy"),
+        ("elsewhere", "Profiles & Elsewhere", "arrow-up-right", "purple"),
+    ] if s[0] in by]
+
+    def head(key, label, icon, accent):
+        n = count(key)
+        badge = f'<span class="msec-count">{n}</span>' if (n and key != "book") else ""
+        return (f'<div class="msec-head"><span class="msec-icon tile--{accent}">{_icon(icon)}</span>'
+                f'<h2>{esc(label)}</h2>{badge}</div>')
+
     out = [
-        f'<p class="lede" style="margin-top:2.2rem">Dr. Seth Dobrin\u2019s books, interviews, '
-        f'keynotes, broadcast appearances, peer-reviewed publications, and speaking engagements '
-        f'\u2014 {total} sourced items across {len(cats)} categories.</p>'
+        '<p class="lede" style="margin-top:2rem">Dr. Seth Dobrin \u2014 author, keynote speaker, and a '
+        'widely-cited voice in enterprise and responsible AI. A decade of talks, interviews, '
+        'broadcasts, and peer-reviewed research, gathered in one place.</p>'
     ]
-    # Jump-nav: chip per category with its item count (anchor links, no JS needed).
-    nav = ['<nav class="media-nav" aria-label="Jump to a category">']
-    for c, s in zip(cats, slugs):
-        nav.append(f'<a href="#{s}">{_html.escape(c["name"])} <span>{len(c["items"])}</span></a>')
-    nav.append("</nav>")
-    out.append("".join(nav))
 
-    for c, s in zip(cats, slugs):
-        out.append(f'<section id="{s}" class="media-cat"><h2>{_html.escape(c["name"])}</h2><ul class="media-list">')
-        for it in c["items"]:
-            t = _html.escape(it["title"]); d = _html.escape(it["detail"]); u = _html.escape(it["url"], quote=True)
-            out.append(f'<li><a href="{u}" target="_blank" rel="noopener">{t}</a> <span class="media-detail">{d}</span></li>')
-        out.append("</ul></section>")
+    # Stats band (real counts).
+    stats = [
+        (count("speaking"), "Talks &amp; keynotes"),
+        (count("video") + count("podcasts"), "Podcasts &amp; videos"),
+        (count("research"), "Publications"),
+        (count("tv"), "TV &amp; press"),
+    ]
+    out.append('<div class="mstats">' + "".join(
+        f'<div class="mstat"><span class="mstat-n">{n}</span><span class="mstat-l">{l}</span></div>'
+        for n, l in stats if n) + '</div>')
+
+    # Section nav.
+    out.append('<nav class="media-nav" aria-label="Jump to a section">' + "".join(
+        f'<a href="#sec-{k}">{esc(lbl)}</a>' for k, lbl, _i, _a in SECTIONS) + '</nav>')
+
+    for key, label, icon, accent in SECTIONS:
+        if key == "book":
+            b = items_of("book")
+            title = b[0]["title"] if b else "AI iQ for a Human-Focused Future"
+            btns = "".join(
+                f'<a class="btn pri" href="{esc(it["url"])}" target="_blank" rel="noopener">'
+                f'{esc(it["detail"].split(chr(8212))[0].strip())}</a>' for it in b)
+            out.append(
+                f'<section id="sec-book" class="msec">{head(key, label, icon, accent)}'
+                f'<div class="book-feature">'
+                f'<div class="book-cover tile--{accent}"><span class="book-cover-tag">Book &middot; 2024</span>'
+                f'<span class="book-cover-title">{esc(title)}</span>'
+                f'<span class="book-cover-by">Dr. Seth Dobrin</span></div>'
+                f'<div class="book-meta"><h3 class="book-title">{esc(title)}</h3>'
+                f'<p class="book-sub">By Dr. Seth Dobrin &middot; Routledge / CRC Press &middot; 2024</p>'
+                f'<p class="book-get">Get the book:</p>'
+                f'<div class="cta-row" style="justify-content:flex-start">{btns}</div>'
+                f'</div></div></section>')
+        elif key == "speaking":
+            years = []
+            for c in by["speaking"]:
+                m = _re.search(r"(\d{4})", c["name"])
+                years.append((int(m.group(1)) if m else 0, c["items"]))
+            years.sort(key=lambda x: -x[0])
+            tl = [f'<section id="sec-speaking" class="msec">{head(key, label, icon, accent)}'
+                  f'<p class="msec-sub">{count("speaking")} engagements across 2017\u20132026.</p>'
+                  '<div class="timeline">']
+            for yr, its in years:
+                rows = "".join(
+                    f'<a class="tl-item" href="{esc(it["url"])}" target="_blank" rel="noopener">'
+                    f'<span class="tl-title">{esc(it["title"])}</span>'
+                    f'<span class="tl-date">{esc(it["detail"])}</span></a>' for it in its)
+                tl.append(f'<div class="tl-year"><div class="tl-marker">{yr}</div>'
+                          f'<div class="tl-items">{rows}</div></div>')
+            tl.append('</div></section>')
+            out.append("".join(tl))
+        elif key == "research":
+            rows = "".join(
+                f'<li><a href="{esc(it["url"])}" target="_blank" rel="noopener">{esc(it["title"])}</a>'
+                f'<span class="pub-year">{esc(it["detail"])}</span></li>' for it in items_of("research"))
+            out.append(f'<section id="sec-research" class="msec">{head(key, label, icon, accent)}'
+                       f'<ul class="pub-list">{rows}</ul></section>')
+        elif key == "elsewhere":
+            chips = "".join(
+                f'<a class="mchip" href="{esc(it["url"])}" target="_blank" rel="noopener">{esc(it["title"])}</a>'
+                for it in items_of("elsewhere"))
+            out.append(f'<section id="sec-elsewhere" class="msec">{head(key, label, icon, accent)}'
+                       f'<div class="mchips">{chips}</div></section>')
+        else:
+            cards = "".join(
+                f'<a class="mcard" href="{esc(it["url"])}" target="_blank" rel="noopener">'
+                f'<span class="mcard-date">{esc(it["detail"])}</span>'
+                f'<span class="mcard-title">{esc(it["title"])}</span>'
+                f'<span class="mcard-go">{_icon("arrow-up-right")}</span></a>' for it in items_of(key))
+            out.append(f'<section id="sec-{key}" class="msec">{head(key, label, icon, accent)}'
+                       f'<div class="mcards">{cards}</div></section>')
+
     return "\n".join(out)
 
 
