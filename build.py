@@ -136,6 +136,7 @@ ICONS = {
     "tv": '<path d="m17 2-5 5-5-5"/><rect width="20" height="15" x="2" y="7" rx="2"/>',
     "newspaper": '<path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="10" y="6" rx="1"/>',
     "presentation": '<path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/>',
+    "square-pen": '<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/>',
     "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
     "arrow-up-right": '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
 }
@@ -284,6 +285,8 @@ def _media_body():
             return "speaking"
         if name.startswith("Academic"):
             return "research"
+        if name.startswith("Articles"):
+            return "articles"
         return "elsewhere"
 
     by = {}
@@ -304,6 +307,7 @@ def _media_body():
         ("podcasts", "Podcasts", "mic", "purple"),
         ("tv", "TV, Broadcast & Press", "tv", "gold"),
         ("newsletter", "Silicon Sands Newsletter", "newspaper", "cyan"),
+        ("articles", "Articles & Op-Eds", "square-pen", "red"),
         ("research", "Research & Publications", "graduation-cap", "navy"),
         ("elsewhere", "Profiles & Elsewhere", "arrow-up-right", "purple"),
     ] if s[0] in by]
