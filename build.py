@@ -26,7 +26,7 @@ ORG_JSONLD = {
     "description": "AI strategy, governance, and implementation consulting — AI iQ™ readiness assessments, governance & ethics alignment, executive education, and GenAI/ML implementation.",
     "email": "info@qantm.ai",
     "contactPoint": {"@type": "ContactPoint", "email": "info@qantm.ai", "contactType": "sales", "availableLanguage": "English"},
-    "founder": {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr.", "jobTitle": "CEO & AI Strategist"},
+    "founder": {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr.", "jobTitle": "Founder & CEO", "description": "IBM's first-ever Global Chief AI Officer; author of AI iQ for a Human-Focused Future (Routledge, 2024).", "sameAs": ["https://www.linkedin.com/company/qantm-ai/"]},
     "employee": [
         {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr.", "jobTitle": "CEO & AI Strategist"},
         {"@type": "Person", "name": "Tabitha Rudd", "jobTitle": "COO"},
@@ -42,13 +42,24 @@ ORG_JSONLD = {
     ],
 }
 
+BOOK_JSONLD = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "AI iQ for a Human-Focused Future",
+    "author": {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr."},
+    "publisher": {"@type": "Organization", "name": "Routledge / CRC Press"},
+    "datePublished": "2024",
+    "isbn": "9781032603896",
+    "url": "https://www.routledge.com/AI-IQ-for-a-Human-focused-Future-Strategy-Talent-and-Culture/Dobrin/p/book/9781032603896",
+}
+
 EMAIL = "mailto:info@qantm.ai"
 
 NAV = [("Home", "/"), ("Services", "/services"), ("Case Studies", "/case-studies"), ("Media", "/media"), ("About", "/about"), ("Contact", "/contact")]
 
 
 def jsonld(extra=None):
-    graph = [ORG_JSONLD] + (extra or [])
+    graph = [ORG_JSONLD, BOOK_JSONLD] + (extra or [])
     body = json.dumps(graph if len(graph) > 1 else graph[0], ensure_ascii=False, separators=(",", ":"))
     return body.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
 
@@ -77,12 +88,12 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/assets/img/ipad-playbook.jpg">
-<meta property="og:image:width" content="1000">
-<meta property="og:image:height" content="526">
+<meta property="og:image" content="{SITE}/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Qantm AI — Next Level AI Solutions">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{SITE}/assets/img/ipad-playbook.jpg">
+<meta name="twitter:image" content="{SITE}/assets/img/og-card.png">
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="apple-touch-icon" href="./favicon.png">
@@ -105,7 +116,7 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
   <div class="wrap">
     <div class="cols">
       <nav aria-label="Footer">
-        <a href="./">Home</a><a href="./services">Services</a><a href="./case-studies">Case Studies</a><a href="./about">About</a><a href="./contact">Contact</a>
+        <a href="./">Home</a><a href="./services">Services</a><a href="./case-studies">Case Studies</a><a href="./media">Media</a><a href="./about">About</a><a href="./contact">Contact</a>
       </nav>
       <nav aria-label="Elsewhere">
         <a href="https://www.linkedin.com/company/qantm-ai/" rel="noopener">LinkedIn</a>
@@ -174,7 +185,7 @@ OFFERINGS = [
 
 home_body = f"""
 <div class="hero">
-  <p>Leading the way in artificial intelligence, with a leadership team bringing decades of success in AI strategy, governance, and development.</p>
+  <p>Most AI initiatives stall between the demo and the boardroom. Qantm AI closes that gap with readiness assessments, governance frameworks, and hands-on implementation &mdash; led by IBM&rsquo;s founding Global Chief AI Officer.</p>
 </div>
 <section id="offerings">
   <h2>Our Tailored Offerings</h2>
@@ -183,12 +194,12 @@ home_body = f"""
 </section>
 <section id="ethics">
   <h2>Ethical AI Governance</h2>
-  <p class="lede">At Qantm AI, we put ethical practices front and center in every engagement. Our comprehensive governance frameworks and robust data privacy safeguards ensure transparency and fairness&mdash;because in this fast-paced world, integrity is always in vogue!</p>
+  <p class="lede">At Qantm AI, we put ethical practices front and center in every engagement. Our comprehensive governance frameworks and robust data privacy safeguards keep AI transparent and accountable&mdash;because integrity isn&rsquo;t a trend, it&rsquo;s the foundation of AI you can defend to your board, your regulators, and your customers.</p>
 </section>
 <section id="cta">
-  <h2>Join the AI Revolution!</h2>
-  <p class="lede">Contact Qantm AI today to discover how our tailor-made solutions can elevate your organization into the bright future of technology.</p>
-  <img class="cta-image" src="./assets/img/join-ai-revolution.jpg" alt="Join the AI Revolution with Qantm AI" width="500" height="300" loading="lazy">
+  <h2>Move from AI pilots to production</h2>
+  <p class="lede">Talk to Qantm AI about a readiness assessment, a governance framework, or hands-on implementation &mdash; and turn stalled initiatives into governed, in-production results.</p>
+  <img class="cta-image" src="./assets/img/join-ai-revolution.jpg" alt="Qantm AI — from AI pilots to production" width="500" height="300" loading="lazy">
   <div class="cta-row"><a class="btn pri" href="{EMAIL}">Contact Us</a></div>
 </section>
 """
@@ -521,7 +532,7 @@ CASE_BODY, CASE_LD, CS_N, CS_ENT, CS_GOV = _case_studies()
 pages = {
     "index.html": ("/", "Qantm AI — AI Strategy, Governance & Implementation Consulting",
         "AI consulting led by Dr. Seth Dobrin: AI iQ™ readiness assessments, governance and ethics alignment, executive education, and GenAI/ML implementation.",
-        ("The Future of Business, Delivered Today!", True), home_body,
+        ("Turn AI ambition into governed, in-production results.", True), home_body,
         [{"@context": "https://schema.org", "@type": "WebSite", "name": "Qantm AI", "url": SITE}]),
     "services.html": ("/services", "AI Advisory Services — Strategy, Implementation, Training | Qantm AI",
         "AI strategy consulting, implementation support (vendor selection, architecture, change management), and AI training for executives and technical teams.",
