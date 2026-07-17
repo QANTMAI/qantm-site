@@ -77,8 +77,12 @@ def page(path, title, desc, h1, body, extra_ld=None, noindex=False):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/favicon.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{SITE}/assets/img/ipad-playbook.jpg">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="526">
+<meta property="og:image:alt" content="Qantm AI — Next Level AI Solutions">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{SITE}/assets/img/ipad-playbook.jpg">
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="apple-touch-icon" href="./favicon.png">
