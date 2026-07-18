@@ -26,7 +26,7 @@ ORG_JSONLD = {
     "description": "AI strategy, governance, and implementation consulting — AI iQ™ readiness assessments, governance & ethics alignment, executive education, and GenAI/ML implementation.",
     "email": "info@qantm.ai",
     "contactPoint": {"@type": "ContactPoint", "email": "info@qantm.ai", "contactType": "sales", "availableLanguage": "English"},
-    "founder": {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr.", "jobTitle": "Founder & CEO", "description": "IBM's first-ever Global Chief AI Officer; author of AI iQ for a Human-Focused Future (Routledge, 2024).", "sameAs": ["https://www.linkedin.com/company/qantm-ai/"]},
+    "founder": {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr.", "jobTitle": "Founder & CEO", "description": "Founder & CEO of Qantm AI; author of AI iQ for a Human-Focused Future (Routledge, 2024).", "sameAs": ["https://www.linkedin.com/company/qantm-ai/"]},
     "employee": [
         {"@type": "Person", "name": "Seth Dobrin", "honorificPrefix": "Dr.", "jobTitle": "CEO & AI Strategist"},
         {"@type": "Person", "name": "Tabitha Rudd", "jobTitle": "COO"},
@@ -185,7 +185,7 @@ OFFERINGS = [
 
 home_body = f"""
 <div class="hero">
-  <p>Most AI initiatives stall between the demo and the boardroom. Qantm AI closes that gap with readiness assessments, governance frameworks, and hands-on implementation &mdash; led by IBM&rsquo;s founding Global Chief AI Officer.</p>
+  <p>Most AI initiatives stall between the demo and the boardroom. Qantm AI closes that gap with the AI iQ&trade; approach &mdash; readiness assessments, governance guardrails, and hands-on implementation for enterprises and governments moving from pilots to production.</p>
 </div>
 <section id="offerings">
   <h2>Our Tailored Offerings</h2>
