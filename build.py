@@ -193,7 +193,7 @@ home_body = f"""
   <p>Most AI initiatives stall between the demo and the boardroom. Qantm AI closes that gap with the AI iQ&trade; approach &mdash; readiness assessments, governance guardrails, and hands-on implementation for enterprises and governments moving from pilots to production.</p>
 </div>
 <section id="offerings">
-  <h2>Our Tailored Offerings</h2>
+  <h2>Our AI iQ&trade; Offerings</h2>
   <div class="tiles">
 {"".join('    ' + _tile(c, i, t, f'<p>{d}</p>') + chr(10) for t, d, c, i in OFFERINGS)}  </div>
 </section>
@@ -276,7 +276,7 @@ contact_body = f"""
 
   <div class="card booking-card">
     <div>
-      <h3 style="margin:0 0 .35rem">Book a 30-minute AI readiness call</h3>
+      <h2 style="margin:0 0 .35rem;font-size:1.15rem">Book a 30-minute AI readiness call</h2>
       <p style="margin:0">Pick a time that works &mdash; it goes straight into our calendar.</p>
     </div>
     <a class="btn blue" href="https://calendar.app.google/fyVQVA7XUn4NtttM9" target="_blank" rel="noopener">Book a call &rarr;</a>
@@ -532,7 +532,7 @@ def _case_studies():
         'Every entry links to its original source and is re-checked on each site build.</p>'
         f'<div class="cta-row"><a class="btn pri" href="./contact">Talk to Qantm AI about your AI initiative</a></div>'
     )
-    body = f'{lede}{filter_bar}<div class="cs-grid">{"".join(cards)}</div>{disclosure}{script}'
+    body = f'{lede}{filter_bar}<h2 class="sr">Verified deployments</h2><div class="cs-grid">{"".join(cards)}</div>{disclosure}{script}'
 
     # SEO: an ItemList of the case studies, each a CreativeWork citing its source.
     item_list = {
@@ -592,9 +592,11 @@ for fname, spec in pages.items():
     open(fname, "w").write(page(path, title, desc, h1, body, extra, noindex))
     print(f"wrote {fname}  (title {len(title)}, desc {len(desc)})")
 
-# sitemap — all pages rebuilt with the live-matched design on 2026-07-11
+# sitemap — bump SITEMAP_LASTMOD on any significant content change (kept a
+# constant, not a live date, so the CI drift check stays deterministic)
+SITEMAP_LASTMOD = "2026-07-20"
 urls = "\n".join(
-    f'  <url><loc>{SITE}{p}</loc><lastmod>2026-07-11</lastmod></url>'
+    f'  <url><loc>{SITE}{p}</loc><lastmod>{SITEMAP_LASTMOD}</lastmod></url>'
     for p in ["/", "/services", "/case-studies", "/media", "/about", "/contact"])
 open("sitemap.xml", "w").write(
     f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
