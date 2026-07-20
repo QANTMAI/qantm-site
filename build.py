@@ -154,6 +154,11 @@ ICONS = {
     "square-pen": '<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/>',
     "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
     "arrow-up-right": '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
+    "landmark": '<path d="M10 18v-7"/><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/>',
+    "radio-tower": '<path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9"/><path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5"/><circle cx="12" cy="9" r="2"/><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47"/><path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1"/><path d="M9.5 18h5"/><path d="m8 22 4-11 4 11"/>',
+    "flask-conical": '<path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/>',
+    "banknote": '<rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
+    "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
 }
 
 
@@ -191,6 +196,18 @@ home_body = f"""
   <h2>Our Tailored Offerings</h2>
   <div class="tiles">
 {"".join('    ' + _tile(c, i, t, f'<p>{d}</p>') + chr(10) for t, d, c, i in OFFERINGS)}  </div>
+</section>
+<section id="our-work">
+  <h2>Our Work</h2>
+  <p class="lede">Most of our engagements are confidential &mdash; our clients ask us not to publish their names, and we honor that. What we can share is the breadth of organizations that trust Qantm AI to move from AI ambition to production:</p>
+  <div class="tiles">
+    {_tile("navy", "landmark", "Government", "<p>National and public-sector bodies in the Middle East.</p>")}
+    {_tile("cyan", "radio-tower", "Telecommunications", "<p>Telecom carriers and network operators.</p>")}
+    {_tile("purple", "flask-conical", "Biotech &amp; Life Sciences", "<p>Biotech and life-sciences organizations.</p>")}
+    {_tile("gold", "code", "Software &amp; Technology", "<p>Software and technology companies.</p>")}
+    {_tile("red", "banknote", "Banking &amp; Financial Services", "<p>Banks and financial institutions.</p>")}
+    {_tile("pink", "globe", "Global Nonprofits &amp; NGOs", "<p>Mission-driven nonprofits and NGOs worldwide.</p>")}
+  </div>
 </section>
 <section id="ethics">
   <h2>Ethical AI Governance</h2>
