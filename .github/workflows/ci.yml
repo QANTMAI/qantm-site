@@ -3,7 +3,8 @@ name: CI
 # Guards the canonical Qantm AI site. On every PR (and push to main) it proves
 # the case-studies data is real and that the committed HTML is exactly what
 # build.py generates — so a bad edit, or an edit that forgets to rebuild, can't
-# ship. A weekly job re-checks that every case-study source URL still resolves.
+# ship. A weekly job re-checks that every case-study and Media source URL still
+# resolves (dead event/press links surface as a failed run instead of by hand).
 #
 # Room to expand: add steps under `build` (HTML validation, link check, image
 # budget) or new jobs below — each is independent.
@@ -34,6 +35,9 @@ jobs:
       - name: Verify case-studies provenance gate
         run: python3 data/verify_case_studies.py
 
+      - name: Verify media-catalog structure
+        run: python3 data/check_media_links.py
+
       - name: Build the site
         run: python3 build.py
 
@@ -58,3 +62,6 @@ jobs:
           python-version: "3.12"
       - name: Every case-study referenceUrl still resolves
         run: python3 data/verify_case_studies.py --live
+
+      - name: Every media link still resolves
+        run: python3 data/check_media_links.py --live
