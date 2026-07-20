@@ -118,16 +118,29 @@ done
 - [ ] Spot-check that inbound links / bookmarks to the old site still resolve
       (URLs are identical, so they should).
 
-## Phase 5 — Decommission Replit (after 24–48 h stable)
+## Phase 5 — Decommission Replit  ✅ cutover complete 2026-07-11 — final cleanup below
 
-Only once qantm.ai has served cleanly from GitHub for a day or two:
+qantm.ai has served cleanly from GitHub Pages since **2026-07-11** (re-verified
+2026-07-20): apex A → `185.199.108–111.153`, `www` → `qantmai.github.io`,
+`server: GitHub.com` via Fastly, HTTPS enforced, cert `approved` for
+`qantm.ai` + `www.qantm.ai`. DNS points at Replit **nowhere**, the site has
+**zero** Replit code dependencies (static — no backend calls), and
+`regenesis.qantm.ai` no longer resolves. Retiring the Repl breaks nothing.
 
+Already done:
+- [x] Apex + `www` DNS moved to GitHub Pages (old Replit A `34.111.179.208` gone).
+- [x] `TXT` `replit-verify=…` **removed** — verified absent 2026-07-20; only
+      `v=spf1 …` and `google-site-verification` remain (both correctly kept).
+
+Remaining — **owner-only** (needs the Replit dashboard; I can't log in):
 - [ ] In the Replit project, **remove the qantm.ai custom-domain binding** so
       Replit stops claiming the domain.
-- [ ] **Stop / archive** the Replit deployment. Keep the Repl itself as a backup
-      for a few weeks — don't delete it yet.
-- [ ] In GoDaddy, delete the now-obsolete `TXT` `replit-verify=…` record. (Leave
-      SPF and google-site-verification.)
+- [ ] **Stop / archive** the Replit deployment. Keep the Repl as a cold backup —
+      no need to delete it.
+
+> After the Repl is archived, rollback-to-Replit (below) no longer applies —
+> the canonical source is this repo, so any rollback is `git revert` + rebuild,
+> served by GitHub Pages.
 
 ## Rollback (if anything looks wrong at any point)
 
