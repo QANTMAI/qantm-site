@@ -272,7 +272,7 @@ about_body = f"""
 """
 
 contact_body = f"""
-  <p class="lede" style="margin-top:2.2rem">Book a call or send a message &mdash; whichever is easier. We&rsquo;d love to hear from you.</p>
+  <p class="lede" style="margin-top:2.2rem">Book a call or drop us a line &mdash; whichever is easier. We&rsquo;d love to hear from you.</p>
 
   <div class="card booking-card">
     <div>
@@ -282,29 +282,11 @@ contact_body = f"""
     <a class="btn blue" href="https://calendar.app.google/fyVQVA7XUn4NtttM9" target="_blank" rel="noopener">Book a call &rarr;</a>
   </div>
 
-  <h3 style="margin:2.2rem 0 .2rem">Or send a message</h3>
-  <form class="contact-form" action="https://formsubmit.co/info@qantm.ai" method="POST">
-    <input type="hidden" name="_subject" value="New inquiry from qantm.ai">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="true">
-    <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-    <div class="form-row">
-      <label>Name<input type="text" name="name" required autocomplete="name"></label>
-      <label>Work email<input type="email" name="email" required autocomplete="email"></label>
-    </div>
-    <div class="form-row">
-      <label>Company<input type="text" name="company" autocomplete="organization"></label>
-      <label>Role<input type="text" name="role" autocomplete="organization-title"></label>
-    </div>
-    <label>How can we help?<textarea name="message" rows="4" required></textarea></label>
-    <button type="submit" class="btn pri">Send message</button>
-  </form>
-
   <div class="kv" style="margin-top:2.2rem">
     <div class="card"><strong>Email</strong><a href="mailto:info@qantm.ai">info@qantm.ai</a></div>
     <div class="card"><strong>Business hours</strong>Monday&ndash;Friday<br>9:00 AM&ndash;5:00 PM CST</div>
   </div>
-  <p class="lede" style="margin-top:1.6rem">We typically respond within 24&ndash;48 business hours.</p>
+  <p class="lede" style="margin-top:1.6rem">Prefer email? Reach us at <a href="mailto:info@qantm.ai">info@qantm.ai</a> &mdash; we typically respond within 24&ndash;48 business hours.</p>
   """
 
 nf_body = """
