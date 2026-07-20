@@ -222,12 +222,12 @@ home_body = f"""
 """
 
 services_body = f"""
-<p class="lede" style="margin-top:2.2rem">Transform your business with our expert AI consulting services.</p>
-<div class="tiles">
-  {_tile("navy", "brain", "AI Strategy Consulting", "<p>Develop a comprehensive AI roadmap aligned with your business objectives.</p><ul><li>AI readiness assessment</li><li>Technology stack evaluation</li><li>Implementation roadmap</li><li>ROI analysis</li></ul>")}
-  {_tile("cyan", "code", "Implementation Support", "<p>Expert guidance in selecting and deploying AI solutions.</p><ul><li>Vendor selection</li><li>Integration planning</li><li>Technical architecture</li><li>Change management</li></ul>")}
-  {_tile("purple", "users", "AI Training &amp; Education", "<p>Empower your team with AI knowledge and practical skills.</p><ul><li>Executive workshops</li><li>Technical training</li><li>Best practices</li><li>Hands-on exercises</li></ul>")}
-</div>
+<p class="lede" style="margin-top:2.2rem">Transform your organization with the AI iQ&trade; approach &mdash; a clear path from readiness and strategy to governed, in-production AI.</p>
+<section id="offerings">
+  <h2>Our AI iQ&trade; Offerings</h2>
+  <div class="tiles">
+{"".join('    ' + _tile(c, i, t, f'<p>{d}</p>') + chr(10) for t, d, c, i in OFFERINGS)}  </div>
+</section>
 <section>
   <h2>Why Choose Us?</h2>
   <p class="lede">We combine deep AI expertise with practical business experience to deliver real results.</p>
