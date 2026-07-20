@@ -1,5 +1,11 @@
 # QANTM AI web-property inventory — 2026-07-08
 
+> **Historical snapshot.** This describes the *pre-migration* state. qantm.ai has
+> since been rebuilt as this static site and has been **live on GitHub Pages since
+> 2026-07-11** (DNS fully cut over; no longer on Replit). Kept for provenance —
+> read it as "what existed before," not current state. See `README.md` and
+> `docs/GO_LIVE.md` for the live setup and the final Replit-decommission steps.
+
 Compiled before building this static replacement. Every fact below was verified
 live (curl, DNS, real-browser rendering, JS-bundle analysis) on 2026-07-08.
 
